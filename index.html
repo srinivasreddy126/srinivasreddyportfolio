@@ -1,190 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Srinivas Reddy | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+<meta charset="UTF-8">
+<title>Srinivas Reddy | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      .section {
-  padding: 80px 60px;
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    body {
-      background: #f5f7fa;
-      color: #1f2937;
-      line-height: 1.6;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      background: #ffffff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    nav h2 {
-      color: #0f172a;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #374151;
-      font-weight: 500;
-    }
-    nav a {
-  position: relative;
+body{
+  background:linear-gradient(135deg,#667eea,#764ba2);
+  color:#fff;
+  overflow-x:hidden;
 }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 2px;
-  background: #1d4ed8;
-  transition: width 0.3s ease;
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 60px;
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
 }
 
-nav a:hover::after {
-  width: 100%;
+nav h2{
+  font-weight:600;
 }
 
-
-    nav a:hover {
-      color: #1d4ed8;
-    }
-
-    .hero {
-      padding: 120px 60px;
-      background: linear-gradient(135deg,#0f172a,#1e3a8a);
-      color: #ffffff;
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      opacity: 0.9;
-      margin-bottom: 25px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      background: #ffffff;
-      color: #1e3a8a;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 6px;
-    }
-
-    .section {
-      padding: 80px 60px;
-    }
-
-    .section.gray {
-      background: #ffffff;
-    }
-
-    .section h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      color: #0f172a;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-      gap: 20px;
-      margin-top: 25px;
-    }
-.btn {
-  transition: all 0.3s ease;
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:25px;
 }
 
-.btn:hover {
-  background: #e5e7eb;
-  transform: translateY(-2px);
+nav a{
+  text-decoration:none;
+  color:#fff;
+  font-weight:400;
+  position:relative;
 }
 
-.card {
-  transition: all 0.3s ease;
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0;
+  height:2px;
+  background:#fff;
+  transition:0.3s;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+nav a:hover::after{
+  width:100%;
 }
 
-    .card {
-      background: #f9fafb;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      text-align: center;
-      font-weight: 500;
-    }
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:120px 20px;
+  position:relative;
+}
 
-    footer {
-      background: #0f172a;
-      color: #ffffff;
-      text-align: center;
-      padding: 25px;
-      margin-top: 40px;
-    }
+.hero h1{
+  font-size:48px;
+  font-weight:700;
+}
 
-    /* Animations */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
+.hero p{
+  margin-top:15px;
+  font-size:18px;
+  opacity:0.9;
+}
 
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.btn{
+  margin-top:30px;
+  padding:14px 36px;
+  background:#fff;
+  color:#333;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
 
-    /* Mobile */
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-      }
+.btn:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 30px rgba(0,0,0,0.25);
+}
 
-      .hero, .section {
-        padding: 60px 25px;
-      }
+/* FLOATING ICONS */
+.floating{
+  position:absolute;
+  font-size:40px;
+  opacity:0.25;
+  animation:float 6s ease-in-out infinite;
+}
 
-      .hero h1 {
-        font-size: 32px;
-      }
-    }
-  </style>
+.icon1{top:20%;left:10%;}
+.icon2{top:60%;left:15%;animation-delay:2s;}
+.icon3{top:30%;right:12%;animation-delay:4s;}
+.icon4{top:65%;right:18%;animation-delay:1s;}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-25px);}
+  100%{transform:translateY(0);}
+}
+
+/* SECTIONS */
+.section{
+  padding:100px 80px;
+  background:#fff;
+  color:#333;
+}
+
+.section:nth-child(even){
+  background:#f4f6ff;
+}
+
+.section h2{
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+.section p{
+  max-width:900px;
+  margin-bottom:20px;
+  line-height:1.8;
+}
+
+/* SKILLS */
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+}
+
+.skill-card{
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.skill-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* CONTACT */
+form{
+  max-width:500px;
+}
+
+input,textarea{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  margin-bottom:15px;
+}
+
+footer{
+  text-align:center;
+  padding:40px;
+  background:#111;
+  color:#bbb;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:20px;}
+  .hero h1{font-size:34px;}
+  .section{padding:70px 25px;}
+}
+</style>
 </head>
 
 <body>
@@ -198,91 +209,72 @@ nav a:hover::after {
   </ul>
 </nav>
 
-<section class="hero fade-up">
-  <h1>Hospitality Professional<br>Transitioning into Supply Chain</h1>
-  <p>3+ years of international experience | Maldives</p>
-  <a href="#contact" class="btn">Get in Touch</a>
+<section class="hero">
+  <div class="floating icon1">📦</div>
+  <div class="floating icon2">🚚</div>
+  <div class="floating icon3">📊</div>
+  <div class="floating icon4">⚙️</div>
+
+  <h1>Hi, I’m Srinivas Reddy</h1>
+  <p>Hospitality Professional → Supply Chain Aspirant</p>
+  <a href="#contact" class="btn">Let’s Connect</a>
 </section>
 
-<section id="about" class="section fade-up">
+<section id="about" class="section">
   <h2>About Me</h2>
   <p>
-    I am a hospitality professional with over three years of international experience
-    in luxury resort operations in the Maldives, currently transitioning into
-    Logistics and Supply Chain Management.
+    I am a hospitality professional with international experience in the Maldives,
+    transitioning into Logistics and Supply Chain Management. My background has
+    given me hands-on exposure to inventory, procurement coordination, and
+    operational efficiency.
   </p>
 </section>
 
-<section id="skills" class="section gray fade-up">
-  <h2>Key Skills</h2>
-  <div class="grid">
-    <div class="card">Inventory & Stock Control</div>
-    <div class="card">Procurement Support</div>
-    <div class="card">Vendor Coordination</div>
-    <div class="card">Cost Control</div>
-    <div class="card">MS Excel & Reporting</div>
-    <div class="card">Process Improvement</div>
+<section id="skills" class="section">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="skill-card">Inventory Management</div>
+    <div class="skill-card">Procurement Support</div>
+    <div class="skill-card">Vendor Coordination</div>
+    <div class="skill-card">Cost Control</div>
+    <div class="skill-card">MS Excel & Reporting</div>
+    <div class="skill-card">Process Improvement</div>
   </div>
 </section>
 
-<section id="contact" class="section fade-up">
-  <h2>Contact</h2>
+<section id="contact" class="section">
+  <h2>Contact Me</h2>
   <form id="contact-form">
-    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:12px;margin-bottom:15px;">
-    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:12px;margin-bottom:15px;">
-    <textarea name="message" placeholder="Your Message" rows="5" required style="width:100%;padding:12px;margin-bottom:15px;"></textarea>
-    <button type="submit" class="btn">Send Message</button>
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button class="btn" type="submit">Send Message</button>
   </form>
-  <p id="form-status" style="margin-top:15px;"></p>
+  <p id="form-status"></p>
 </section>
 
 <footer>
-  <p>© 2026 Srinivas Reddy</p>
-  <p style="font-size:14px;opacity:0.8;margin-top:5px;">
-    Hospitality → Supply Chain | UK Aspirant
-  </p>
+  © 2026 Srinivas Reddy | Modern Portfolio
 </footer>
-
-
-<!-- Animation -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  }, { threshold: 0.2 });
-
-  document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
-});
-</script>
 
 <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+(function(){
   emailjs.init("kOYI6ZOgaBZ1GZuag");
+})();
 
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
-
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm(
-      "service_kbivphy",
-      "template_qy88crm",
-      this
-    ).then(() => {
-      status.innerText = "✅ Message sent successfully!";
-    }, () => {
-      status.innerText = "❌ Failed to send message. Try again.";
-    });
+document.getElementById("contact-form").addEventListener("submit",function(e){
+  e.preventDefault();
+  emailjs.sendForm("service_kbivphy","template_qy88crm",this)
+  .then(()=>{
+    document.getElementById("form-status").innerText="✅ Message sent successfully!";
+  },()=>{
+    document.getElementById("form-status").innerText="❌ Failed to send message.";
   });
 });
 </script>
 
 </body>
 </html>
+

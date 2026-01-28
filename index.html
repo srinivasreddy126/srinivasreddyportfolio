@@ -3,132 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio</title>
+    <title>Venkata Srinivas Reddy | Portfolio</title>
     <style>
-        /* CSS Design & Layout */
+        :root {
+            --primary: #d81e5b;
+            --accent: #ffdd57;
+            --dark: #111;
+            --light: #fff;
+        }
+
+        * { box-sizing: border-box; margin:0; padding:0; }
+
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f06, #ffeb3b);
-            color: #333;
+            font-family: system-ui, sans-serif;
+            background: linear-gradient(135deg, var(--primary), #8c1c4e);
+            color: var(--light);
+            min-height: 100vh;
             overflow-x: hidden;
         }
+
         header {
+            padding: 12vh 5vw 8vh;
             text-align: center;
-            padding: 50px 0;
             position: relative;
         }
+
         h1 {
-            font-size: 3em;
-            color: white;
-            animation: float 2s ease-in-out infinite;
+            font-size: clamp(2.5rem, 9vw, 5.5rem);
+            margin-bottom: 0.3em;
+            animation: float 4s ease-in-out infinite;
         }
+
+        .tagline {
+            font-size: clamp(1.1rem, 4vw, 1.5rem);
+            opacity: 0.9;
+        }
+
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%,100% { transform: translateY(0); }
+            50%     { transform: translateY(-15px); }
         }
+
         nav {
             display: flex;
             justify-content: center;
-            background: rgba(0,0,0,0.5);
-            padding: 10px;
-        }
-        nav a {
-            color: white;
-            margin: 0 20px;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #ffeb3b;
-        }
-        section {
-            padding: 50px;
-            text-align: center;
-        }
-        #about, #projects, #contact {
-            background: white;
-            margin: 20px auto;
-            max-width: 800px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-        }
-        #about:hover, #projects:hover, #contact:hover {
-            transform: scale(1.05);
-        }
-        .floating-words {
-            position: absolute;
+            gap: 2.5rem;
+            padding: 1.2rem;
+            background: rgba(0,0,0,0.45);
+            backdrop-filter: blur(8px);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
+            z-index: 100;
         }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            transform: scale(1.12);
+        }
+
+        section {
+            max-width: 920px;
+            margin: 3vh auto;
+            padding: 7vh 6vw;
+            background: rgba(255,255,255,0.94);
+            border-radius: 20px;
+            color: var(--dark);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.22);
+            transition: transform 0.4s;
+        }
+
+        section:hover { transform: translateY(-10px); }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            font-size: 2.1rem;
+        }
+
+        ul {
+            list-style: none;
+            line-height: 1.7;
+        }
+
+        ul li { margin-bottom: 0.6em; }
+
+        .highlight { color: var(--primary); font-weight: 600; }
+
+        .floating-words {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
         .word {
             position: absolute;
-            color: rgba(255,255,255,0.5);
-            font-size: 1.5em;
-            animation: float-word 10s linear infinite;
+            color: rgba(255,255,255,0.35);
+            font-weight: bold;
+            white-space: nowrap;
+            animation: float-word linear forwards;
         }
+
         @keyframes float-word {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+            0%   { transform: translateY(110vh) rotate(-15deg); opacity: 0; }
+            8%   { opacity: 0.6; }
+            92%  { opacity: 0.6; }
+            100% { transform: translateY(-200px) rotate(420deg); opacity: 0; }
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                gap: 1.4rem;
+                padding: 1rem;
+                flex-wrap: wrap;
+            }
+
+            section {
+                margin: 2vh 5vw;
+                padding: 6vh 7vw;
+            }
+
+            h1 { font-size: clamp(2.1rem, 10vw, 3.8rem); }
+            h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
+
+    <div class="floating-words"></div>
+
     <header>
-        <h1>My Professional Portfolio</h1>
-        <div class="floating-words"></div>
+        <h1>Venkata Srinivas Reddy</h1>
+        <div class="tagline">Hospitality Professional → Logistics & Supply Chain Management</div>
     </header>
+
     <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#profile">Profile</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
     </nav>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I'm a professional with skills in web development, design, and more.</p>
+
+    <section id="profile">
+        <h2>Profile</h2>
+        <p>Motivated hospitality professional with over three years of international experience in luxury food & beverage operations, now transitioning into Logistics and Supply Chain Management.</p>
+        <p>Strong exposure to inventory control, operations planning and service process optimisation in high-pressure environments.</p>
+        <p>Seeking admission to a UK Master’s program in Logistics and Supply Chain Management to build analytical, operational, and strategic capabilities for a career in global supply chain and operations management.</p>
+        <p><span class="highlight">Email:</span> venkatasrinivasreddyyeruva@gmail.com<br>
+           <span class="highlight">Phone:</span> +91 9502652963<br>
+           <span class="highlight">Location:</span> Andhra Pradesh, India</p>
     </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Project 1: Description here.</p>
-        <p>Project 2: Description here.</p>
+
+    <section id="skills">
+        <h2>Key Skills</h2>
+        <ul>
+            <li>Inventory Management & Stock Control</li>
+            <li>Operations Planning & Coordination</li>
+            <li>Customer & Stakeholder Management</li>
+            <li>Data Accuracy & Attention to Detail</li>
+            <li>Team Collaboration</li>
+            <li>Problem Solving & Adaptability</li>
+            <li>Cross-Cultural Communication</li>
+        </ul>
     </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: example@email.com</p>
+
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <p><strong>Food & Beverage Specialist</strong> – Madifushi Private Island, Maldives (Nov 2023 – Present)</p>
+        <ul>
+            <li>Manage daily service operations in luxury resort environment</li>
+            <li>Monitor stock levels, inventory planning, reduce shortages</li>
+            <li>Support revenue optimisation through upselling & efficient workflows</li>
+            <li>Handle guest issues, improve satisfaction & repeat business</li>
+        </ul>
+
+        <p><strong>Food & Beverage Intern</strong> – Madifushi Private Island, Maldives (Nov 2022 – Oct 2023)</p>
+        <ul>
+            <li>Assisted inventory handling, stock movement & storage</li>
+            <li>Supported daily operations planning across dining outlets</li>
+        </ul>
+
+        <p><strong>Server</strong> – Buffalo Wild Wings, Hyderabad, India (Mar 2022 – Oct 2022)</p>
+        <ul>
+            <li>Worked in high-volume environment requiring speed & accuracy</li>
+            <li>Recognized twice as Employee of the Month</li>
+        </ul>
+
+        <p><strong>Industrial Exposure Trainee</strong> – The Westin Hotels & Resorts, Chennai, India (Nov 2020 – Mar 2021)</p>
+        <ul>
+            <li>Cross-trained in food production, service & housekeeping</li>
+            <li>Gained exposure to structured processes & quality standards</li>
+        </ul>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <p><strong>B.Sc. in Catering and Hotel Administration</strong><br>
+        Alagappa University (Chennai’s Amrita IIHM), Tamil Nadu, India | 2018 – 2021</p>
+
+        <h2>Certifications & Training</h2>
+        <ul>
+            <li>Highlights of the Wine World – Grape Expectations Ltd</li>
+            <li>Basic Fire Awareness Training Program</li>
+            <li>Welcome Wave Training Program – Madifushi Private Island</li>
+        </ul>
+
+        <h2>Languages</h2>
+        <ul>
+            <li>English (Fluent)</li>
+            <li>Telugu (Fluent)</li>
+            <li>Tamil (Intermediate)</li>
+            <li>Hindi (Intermediate)</li>
+        </ul>
     </section>
 
     <script>
-        // JavaScript Animation & Interactivity
-        const words = ['Design', 'Code', 'Create', 'Innovate', 'Portfolio'];
+        const words = ['Logistics','Supply Chain','Inventory','Operations','Hospitality','Management','Optimisation','Global'];
         const container = document.querySelector('.floating-words');
 
-        function createFloatingWord() {
-            const word = document.createElement('span');
-            word.classList.add('word');
-            word.textContent = words[Math.floor(Math.random() * words.length)];
-            word.style.left = ${Math.random() * 100}%;
-            word.style.animationDuration = ${Math.random() * 5 + 5}s;
-            container.appendChild(word);
-            setTimeout(() => word.remove(), 15000);
+        function spawn() {
+            const el = document.createElement('span');
+            el.className = 'word';
+            el.textContent = words[Math.floor(Math.random()*words.length)];
+            el.style.left = Math.random()*100 + 'vw';
+            el.style.fontSize = (Math.random()*1.6 + 1) + 'rem';
+            el.style.animationDuration = (Math.random()*9 + 11) + 's';
+            container.appendChild(el);
+            setTimeout(()=>el.remove(), 22000);
         }
 
-        setInterval(createFloatingWord, 1000);
+        setInterval(spawn, 700);
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
             });
         });
     </script>
 </body>
-</html>"https://cdn.jsdelivr.net/n
+</html>

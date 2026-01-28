@@ -77,6 +77,19 @@
 
 <section id="contact" class="section">
   <h2>Contact</h2>
+  <p>If you’d like to connect regarding academics, opportunities, or collaborations, feel free to message me.</p>
+
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:12px;margin-bottom:15px;">
+    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:12px;margin-bottom:15px;">
+    <textarea name="message" placeholder="Your Message" rows="5" required style="width:100%;padding:12px;margin-bottom:15px;"></textarea>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+
+  <p id="form-status" style="margin-top:15px;"></p>
+</section>
+
+  <h2>Contact</h2>
   <p>Email: srinivasreddy@email.com</p>
   <p>LinkedIn: linkedin.com/in/srinivasreddy</p>
   <p><a href="Srinivas_Reddy_CV.pdf" class="btn" download>Download Resume</a></p>
@@ -85,6 +98,26 @@
 <footer>
   © 2026 Srinivas Reddy
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("kOYI6ZOgaBZ1GZuag");
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_cx38Irb",
+      "template qy88crm",
+      this
+    ).then(function() {
+      document.getElementById("form-status").innerText = "✅ Message sent successfully!";
+    }, function(error) {
+      document.getElementById("form-status").innerText = "❌ Failed to send message. Try again.";
+    });
+  });
+</script>
 
 </body>
 </html>

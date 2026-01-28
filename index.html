@@ -1,79 +1,22 @@
 <!DOCTYPE html>
-<section class="section">
-  <h2>Certifications & Projects</h2>
-
-  <div class="skills">
-    <div class="skill-card">Diploma in Supply Chain Management – Alison</div>
-    <div class="skill-card">Inventory Optimization Study</div>
-    <div class="skill-card">Procurement Cost Analysis</div>
-  </div>
-</section>
-
 <html lang="en">
 <head>
-  <meta name="description" content="Srinivas Reddy – Hospitality professional transitioning into Logistics and Supply Chain Management. Portfolio website.">
-<meta name="keywords" content="Srinivas Reddy, Supply Chain Portfolio, Logistics Student, Hospitality to Supply Chain">
-<meta name="author" content="Srinivas Reddy">
-
 <meta charset="UTF-8">
 <title>Srinivas Reddy | Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-.timeline {
-  border-left:4px solid #667eea;
-  padding-left:30px;
-}
 
-.timeline-item {
-  margin-bottom:30px;
-  position:relative;
-}
+<meta name="description" content="Srinivas Reddy – Portfolio. Hospitality professional transitioning into Supply Chain Management.">
+<meta name="author" content="Srinivas Reddy">
 
-.timeline-item::before {
-  content:"";
-  position:absolute;
-  left:-42px;
-  top:5px;
-  width:18px;
-  height:18px;
-  background:#667eea;
-  border-radius:50%;
-}
-
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  body.light {
-  background: linear-gradient(135deg,#fdfbfb,#ebedee);
-  color:#222;
-}
-
-body.light nav {
-  background:rgba(0,0,0,0.05);
-}
-
-body.light nav a {
-  color:#222;
-}
-
-body.light .section {
-  background:#ffffff;
-}
-
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
   font-family:'Poppins',sans-serif;
 }
-<script>
-const toggle = document.getElementById("themeToggle");
-toggle.addEventListener("click",()=>{
-  document.body.classList.toggle("light");
-  toggle.textContent =
-    document.body.classList.contains("light") ? "☀️" : "🌙";
-});
-</script>
 
 body{
   background:linear-gradient(135deg,#667eea,#764ba2);
@@ -91,12 +34,8 @@ nav{
   width:100%;
   top:0;
   z-index:100;
-  background:rgba(255,255,255,0.1);
-  backdrop-filter:blur(10px);
-}
-
-nav h2{
-  font-weight:600;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(12px);
 }
 
 nav ul{
@@ -104,38 +43,10 @@ nav ul{
   list-style:none;
   gap:25px;
 }
-  <button id="themeToggle" style="
-  background:rgba(255,255,255,0.2);
-  border:none;
-  color:#fff;
-  padding:8px 14px;
-  border-radius:20px;
-  cursor:pointer;
-">
-🌙
-</button>
-
 
 nav a{
-  text-decoration:none;
   color:#fff;
-  font-weight:400;
-  position:relative;
-}
-
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-5px;
-  width:0;
-  height:2px;
-  background:#fff;
-  transition:0.3s;
-}
-
-nav a:hover::after{
-  width:100%;
+  text-decoration:none;
 }
 
 /* HERO */
@@ -151,7 +62,7 @@ nav a:hover::after{
 }
 
 .hero h1{
-  font-size:48px;
+  font-size:46px;
   font-weight:700;
 }
 
@@ -174,25 +85,24 @@ nav a:hover::after{
 
 .btn:hover{
   transform:translateY(-5px);
-  box-shadow:0 15px 30px rgba(0,0,0,0.25);
 }
 
 /* FLOATING ICONS */
 .floating{
   position:absolute;
-  font-size:40px;
+  font-size:38px;
   opacity:0.25;
   animation:float 6s ease-in-out infinite;
 }
 
-.icon1{top:20%;left:10%;}
-.icon2{top:60%;left:15%;animation-delay:2s;}
-.icon3{top:30%;right:12%;animation-delay:4s;}
+.icon1{top:25%;left:12%;}
+.icon2{top:60%;left:18%;animation-delay:2s;}
+.icon3{top:30%;right:14%;animation-delay:4s;}
 .icon4{top:65%;right:18%;animation-delay:1s;}
 
 @keyframes float{
   0%{transform:translateY(0);}
-  50%{transform:translateY(-25px);}
+  50%{transform:translateY(-22px);}
   100%{transform:translateY(0);}
 }
 
@@ -214,7 +124,6 @@ nav a:hover::after{
 
 .section p{
   max-width:900px;
-  margin-bottom:20px;
   line-height:1.8;
 }
 
@@ -226,36 +135,16 @@ nav a:hover::after{
 }
 
 .skill-card{
-  background:rgba(255,255,255,0.7);
-  backdrop-filter:blur(10px);
+  background:#ffffff;
   padding:25px;
-  border-radius:20px;
+  border-radius:18px;
   text-align:center;
   transition:0.3s;
 }
 
 .skill-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+  transform:translateY(-8px);
 }
-  <section class="section">
-  <h2>Experience</h2>
-
-  <div class="timeline">
-    <div class="timeline-item">
-      <h3>Food & Beverage Specialist</h3>
-      <span>Luxury Resort, Maldives</span>
-      <p>Inventory tracking, procurement coordination, vendor follow-ups, cost control.</p>
-    </div>
-
-    <div class="timeline-item">
-      <h3>Food & Beverage Intern</h3>
-      <span>Luxury Resort, Maldives</span>
-      <p>Stock handling, documentation, cross-department operations exposure.</p>
-    </div>
-  </div>
-</section>
-
 
 /* CONTACT */
 form{
@@ -280,7 +169,7 @@ footer{
 /* MOBILE */
 @media(max-width:768px){
   nav{padding:20px;}
-  .hero h1{font-size:34px;}
+  .hero h1{font-size:32px;}
   .section{padding:70px 25px;}
 }
 </style>
@@ -304,17 +193,15 @@ footer{
   <div class="floating icon4">⚙️</div>
 
   <h1>Hi, I’m Srinivas Reddy</h1>
-  <p>Hospitality Professional → Supply Chain Aspirant</p>
+  <p>Hospitality → Supply Chain</p>
   <a href="#contact" class="btn">Let’s Connect</a>
 </section>
 
 <section id="about" class="section">
   <h2>About Me</h2>
   <p>
-    I am a hospitality professional with international experience in the Maldives,
-    transitioning into Logistics and Supply Chain Management. My background has
-    given me hands-on exposure to inventory, procurement coordination, and
-    operational efficiency.
+    Hospitality professional with international experience in the Maldives,
+    transitioning into Logistics and Supply Chain Management.
   </p>
 </section>
 
@@ -325,13 +212,12 @@ footer{
     <div class="skill-card">Procurement Support</div>
     <div class="skill-card">Vendor Coordination</div>
     <div class="skill-card">Cost Control</div>
-    <div class="skill-card">MS Excel & Reporting</div>
-    <div class="skill-card">Process Improvement</div>
+    <div class="skill-card">Excel & Reporting</div>
   </div>
 </section>
 
 <section id="contact" class="section">
-  <h2>Contact Me</h2>
+  <h2>Contact</h2>
   <form id="contact-form">
     <input type="text" name="name" placeholder="Your Name" required>
     <input type="email" name="email" placeholder="Your Email" required>
@@ -342,27 +228,7 @@ footer{
 </section>
 
 <footer>
-  © 2026 Srinivas Reddy | Modern Portfolio
+  © 2026 Srinivas Reddy
 </footer>
 
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-(function(){
-  emailjs.init("kOYI6ZOgaBZ1GZuag");
-})();
-
-document.getElementById("contact-form").addEventListener("submit",function(e){
-  e.preventDefault();
-  emailjs.sendForm("service_kbivphy","template_qy88crm",this)
-  .then(()=>{
-    document.getElementById("form-status").innerText="✅ Message sent successfully!";
-  },()=>{
-    document.getElementById("form-status").innerText="❌ Failed to send message.";
-  });
-});
-</script>
-
-</body>
-</html>
-
+<script src="https://cdn.jsdelivr.net/n

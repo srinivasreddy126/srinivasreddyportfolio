@@ -4,164 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venkata Srinivas Reddy | Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
         :root {
-            --primary: #d81e5b;
-            --accent: #ffdd57;
-            --dark: #111;
-            --light: #fff;
+            --bg: #0f0c29;
+            --primary: #c850c0;
+            --accent: #ffcc70;
+            --card: rgba(255,255,255,0.08);
+            --text: #e0e0ff;
         }
-
-        * { box-sizing: border-box; margin:0; padding:0; }
-
+        * { margin:0; padding:0; box-sizing:border-box; }
         body {
             font-family: system-ui, sans-serif;
-            background: linear-gradient(135deg, var(--primary), #8c1c4e);
-            color: var(--light);
+            background: linear-gradient(135deg, var(--bg), #302b63, #24243e);
+            color: var(--text);
             min-height: 100vh;
             overflow-x: hidden;
         }
-
         header {
-            padding: 12vh 5vw 8vh;
+            padding: 15vh 5vw 10vh;
             text-align: center;
             position: relative;
         }
-
         h1 {
-            font-size: clamp(2.5rem, 9vw, 5.5rem);
-            margin-bottom: 0.3em;
-            animation: float 4s ease-in-out infinite;
+            font-size: clamp(3rem, 10vw, 7rem);
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glow 3s ease-in-out infinite alternate;
         }
-
-        .tagline {
-            font-size: clamp(1.1rem, 4vw, 1.5rem);
-            opacity: 0.9;
-        }
-
-        @keyframes float {
-            0%,100% { transform: translateY(0); }
-            50%     { transform: translateY(-15px); }
-        }
-
+        @keyframes glow { 0% { text-shadow: 0 0 10px var(--primary); } 100% { text-shadow: 0 0 30px var(--accent); } }
+        .tag { font-size: 1.4rem; opacity: 0.9; margin: 1rem 0; }
         nav {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            padding: 1.2rem;
-            background: rgba(0,0,0,0.45);
-            backdrop-filter: blur(8px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: sticky; top:0; z-index:100;
+            display: flex; justify-content: center; gap: 2.5rem;
+            padding: 1.2rem; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px);
         }
-
         nav a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
+            color: var(--accent); text-decoration: none; font-weight: bold;
+            transition: all 0.4s;
         }
-
-        nav a:hover {
-            color: var(--accent);
-            transform: scale(1.12);
+        nav a:hover { color: var(--primary); transform: scale(1.15); }
+        main { max-width: 1100px; margin: 0 auto; padding: 0 5vw; }
+        .card {
+            background: var(--card); border-radius: 20px;
+            padding: 3rem 2.5rem; margin: 4vh 0;
+            backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.5s;
         }
-
-        section {
-            max-width: 920px;
-            margin: 3vh auto;
-            padding: 7vh 6vw;
-            background: rgba(255,255,255,0.94);
-            border-radius: 20px;
-            color: var(--dark);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.22);
-            transition: transform 0.4s;
+        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 50px rgba(200,80,192,0.3); }
+        h2 { color: var(--accent); margin-bottom: 1.5rem; font-size: 2.4rem; }
+        ul { list-style: none; line-height: 2; }
+        li:before { content:"→ "; color: var(--primary); }
+        #contact form {
+            display: grid; gap: 1.2rem; max-width: 600px; margin: 2rem auto 0;
         }
-
-        section:hover { transform: translateY(-10px); }
-
-        h2 {
-            color: var(--primary);
-            margin-bottom: 1.2rem;
-            font-size: 2.1rem;
+        input, textarea {
+            padding: 1rem; border: none; border-radius: 10px;
+            background: rgba(255,255,255,0.12); color: white;
+            font-size: 1.1rem;
         }
-
-        ul {
-            list-style: none;
-            line-height: 1.7;
+        input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.6); }
+        button {
+            padding: 1.2rem; background: linear-gradient(90deg, var(--primary), var(--accent));
+            border: none; border-radius: 10px; color: white; font-size: 1.2rem; font-weight: bold;
+            cursor: pointer; transition: all 0.3s;
         }
-
-        ul li { margin-bottom: 0.6em; }
-
-        .highlight { color: var(--primary); font-weight: 600; }
-
+        button:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(200,80,192,0.5); }
         .floating-words {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -1;
+            position: fixed; inset: 0; pointer-events: none; z-index: -1;
         }
-
         .word {
-            position: absolute;
-            color: rgba(255,255,255,0.35);
-            font-weight: bold;
-            white-space: nowrap;
+            position: absolute; color: rgba(255,204,112,0.3);
+            font-weight: bold; white-space: nowrap;
             animation: float-word linear forwards;
         }
-
         @keyframes float-word {
-            0%   { transform: translateY(110vh) rotate(-15deg); opacity: 0; }
-            8%   { opacity: 0.6; }
-            92%  { opacity: 0.6; }
-            100% { transform: translateY(-200px) rotate(420deg); opacity: 0; }
+            0% { transform: translateY(120vh) rotate(-20deg); opacity:0; }
+            10% { opacity:0.7; }
+            90% { opacity:0.7; }
+            100% { transform: translateY(-200px) rotate(400deg); opacity:0; }
         }
-
-        @media (max-width: 640px) {
-            nav {
-                gap: 1.4rem;
-                padding: 1rem;
-                flex-wrap: wrap;
-            }
-
-            section {
-                margin: 2vh 5vw;
-                padding: 6vh 7vw;
-            }
-
-            h1 { font-size: clamp(2.1rem, 10vw, 3.8rem); }
-            h2 { font-size: 1.8rem; }
+        @media (max-width:640px) {
+            nav { gap:1.5rem; flex-wrap:wrap; }
+            .card { padding:2.5rem 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="floating-words"></div>
+<div class="floating-words"></div>
 
-    <header>
-        <h1>Venkata Srinivas Reddy</h1>
-        <div class="tagline">Hospitality Professional → Logistics & Supply Chain Management</div>
-    </header>
+<header>
+    <h1>Venkata Srinivas Reddy</h1>
+    <div class="tag">Hospitality → Logistics & Supply Chain</div>
+</header>
 
-    <nav>
-        <a href="#profile">Profile</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-    </nav>
+<nav>
+    <a href="#profile">Profile</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-    <section id="profile">
+<main>
+    <div class="card" id="profile">
         <h2>Profile</h2>
-        <p>Motivated hospitality professional with over three years of international experience in luxury food & beverage operations, now transitioning into Logistics and Supply Chain Management.</p>
-        <p>Strong exposure to inventory control, operations planning and service process optimisation in high-pressure environments.</p>
-        <p>Seeking admission to a UK Master’s program in Logistics and Supply Chain Management to build analytical, operational, and strategic capabilities for a career in global supply chain and operations management.</p>
-        <p><span class="highlight">Email:</span> venkatasrinivasreddyyeruva@gmail.com<br>
-           <span class="highlight">Phone:</span> +91 9502652963<br>
-           <span class="highlight">Location:</span> Andhra Pradesh, India</p>
-    </section>
+        <p>Motivated professional with 3+ years international luxury hospitality experience, transitioning to Logistics & Supply Chain Management.</p>
+        <p>Expertise in inventory, operations planning, process optimisation in fast-paced environments.</p>
+        <p>Pursuing UK MSc in Logistics & Supply Chain to gain strategic & analytical skills for global operations career.</p>
+        <p><strong>Email:</strong> venkatasrinivasreddyyeruva@gmail.com<br>
+           <strong>Phone:</strong> +91 9502652963<br>
+           <strong>Location:</strong> Andhra Pradesh, India</p>
+    </div>
 
-    <section id="skills">
+    <div class="card" id="skills">
         <h2>Key Skills</h2>
         <ul>
             <li>Inventory Management & Stock Control</li>
@@ -172,47 +131,34 @@
             <li>Problem Solving & Adaptability</li>
             <li>Cross-Cultural Communication</li>
         </ul>
-    </section>
+    </div>
 
-    <section id="experience">
+    <div class="card" id="experience">
         <h2>Professional Experience</h2>
-        <p><strong>Food & Beverage Specialist</strong> – Madifushi Private Island, Maldives (Nov 2023 – Present)</p>
+        <p><strong>Food & Beverage Specialist</strong> — Madifushi Private Island, Maldives (Nov 2023 – Present)</p>
         <ul>
-            <li>Manage daily service operations in luxury resort environment</li>
-            <li>Monitor stock levels, inventory planning, reduce shortages</li>
-            <li>Support revenue optimisation through upselling & efficient workflows</li>
-            <li>Handle guest issues, improve satisfaction & repeat business</li>
+            <li>Daily luxury resort service operations & team coordination</li>
+            <li>Stock monitoring, inventory planning, shortage reduction</li>
+            <li>Revenue support via upselling & efficient workflows</li>
+            <li>Guest issue resolution → higher satisfaction & loyalty</li>
         </ul>
+        <p><strong>Food & Beverage Intern</strong> — Madifushi Private Island (Nov 2022 – Oct 2023)</p>
+        <ul><li>Inventory handling, stock movement, operations support</li></ul>
+        <p><strong>Server</strong> — Buffalo Wild Wings, Hyderabad (Mar–Oct 2022)</p>
+        <ul><li>High-volume service; twice Employee of the Month</li></ul>
+        <p><strong>Industrial Trainee</strong> — The Westin Hotels, Chennai (Nov 2020 – Mar 2021)</p>
+        <ul><li>Cross-training in production, service, housekeeping</li></ul>
+    </div>
 
-        <p><strong>Food & Beverage Intern</strong> – Madifushi Private Island, Maldives (Nov 2022 – Oct 2023)</p>
-        <ul>
-            <li>Assisted inventory handling, stock movement & storage</li>
-            <li>Supported daily operations planning across dining outlets</li>
-        </ul>
-
-        <p><strong>Server</strong> – Buffalo Wild Wings, Hyderabad, India (Mar 2022 – Oct 2022)</p>
-        <ul>
-            <li>Worked in high-volume environment requiring speed & accuracy</li>
-            <li>Recognized twice as Employee of the Month</li>
-        </ul>
-
-        <p><strong>Industrial Exposure Trainee</strong> – The Westin Hotels & Resorts, Chennai, India (Nov 2020 – Mar 2021)</p>
-        <ul>
-            <li>Cross-trained in food production, service & housekeeping</li>
-            <li>Gained exposure to structured processes & quality standards</li>
-        </ul>
-    </section>
-
-    <section id="education">
+    <div class="card" id="education">
         <h2>Education</h2>
-        <p><strong>B.Sc. in Catering and Hotel Administration</strong><br>
-        Alagappa University (Chennai’s Amrita IIHM), Tamil Nadu, India | 2018 – 2021</p>
+        <p><strong>B.Sc. Catering and Hotel Administration</strong><br>Alagappa University (Amrita IIHM), Tamil Nadu | 2018–2021</p>
 
-        <h2>Certifications & Training</h2>
+        <h2>Certifications</h2>
         <ul>
             <li>Highlights of the Wine World – Grape Expectations Ltd</li>
-            <li>Basic Fire Awareness Training Program</li>
-            <li>Welcome Wave Training Program – Madifushi Private Island</li>
+            <li>Basic Fire Awareness Training</li>
+            <li>Welcome Wave Training – Madifushi Private Island</li>
         </ul>
 
         <h2>Languages</h2>
@@ -222,31 +168,58 @@
             <li>Tamil (Intermediate)</li>
             <li>Hindi (Intermediate)</li>
         </ul>
-    </section>
+    </div>
 
-    <script>
-        const words = ['Logistics','Supply Chain','Inventory','Operations','Hospitality','Management','Optimisation','Global'];
-        const container = document.querySelector('.floating-words');
+    <div class="card" id="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</main>
 
-        function spawn() {
-            const el = document.createElement('span');
-            el.className = 'word';
-            el.textContent = words[Math.floor(Math.random()*words.length)];
-            el.style.left = Math.random()*100 + 'vw';
-            el.style.fontSize = (Math.random()*1.6 + 1) + 'rem';
-            el.style.animationDuration = (Math.random()*9 + 11) + 's';
-            container.appendChild(el);
-            setTimeout(()=>el.remove(), 22000);
-        }
+<script>
+    // Replace with your EmailJS credentials
+    const YOUR_PUBLIC_KEY    = 'YOUR_PUBLIC_KEY_HERE';
+    const YOUR_SERVICE_ID    = 'YOUR_SERVICE_ID_HERE';
+    const YOUR_TEMPLATE_ID   = 'YOUR_TEMPLATE_ID_HERE';
 
-        setInterval(spawn, 700);
+    emailjs.init(YOUR_PUBLIC_KEY);
 
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
-            });
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        emailjs.sendForm(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, this)
+            .then(() => alert('Message sent successfully!'))
+            .catch(() => alert('Failed to send. Check console.'));
+        this.reset();
+    });
+
+    // Floating words
+    const words = ['Logistics','Supply','Chain','Inventory','Operations','Hospitality','Global','Optimise'];
+    const cont = document.querySelector('.floating-words');
+    function spawnWord() {
+        const w = document.createElement('span');
+        w.className = 'word';
+        w.textContent = words[Math.floor(Math.random()*words.length)];
+        w.style.left = Math.random()*100 + 'vw';
+        w.style.fontSize = (Math.random()*2 + 1.2) + 'rem';
+        w.style.animationDuration = (Math.random()*10 + 12) + 's';
+        cont.appendChild(w);
+        setTimeout(()=>w.remove(), 25000);
+    }
+    setInterval(spawnWord, 600);
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
         });
-    </script>
+    });
+</script>
 </body>
 </html>

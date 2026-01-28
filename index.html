@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <title>Srinivas Reddy | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <section class="hero fade-up">
+<section class="hero fade-up">
+<section id="about" class="section fade-up">
+<section id="skills" class="section gray fade-up">
+<section id="contact" class="section fade-up">
+
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
@@ -34,6 +40,42 @@
       .hero, .section { padding: 60px 25px; }
       .hero h1 { font-size: 32px; }
     }
+    /* ----- Mobile UX Improvements ----- */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 14px 32px;
+    font-size: 16px;
+  }
+
+  .section h2 {
+    font-size: 26px;
+  }
+
+  input, textarea {
+    font-size: 16px;
+  }
+  .fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+}
+
   </style>
 </head>
 
@@ -98,6 +140,20 @@
 <footer>
   © 2026 Srinivas Reddy
 </footer>
+  <script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".fade-up").forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
   (function(){

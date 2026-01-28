@@ -152,28 +152,50 @@
   document.querySelectorAll(".fade-up").forEach(el => {
     observer.observe(el);
   });
+<!-- Animation Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll(".fade-up").forEach(el => {
+    observer.observe(el);
+  });
+});
 </script>
 
+<!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  (function(){
-    emailjs.init("kOYI6ZOgaBZ1GZuag");
-  })();
+document.addEventListener("DOMContentLoaded", function () {
+  emailjs.init("kOYI6ZOgaBZ1GZuag");
 
-  document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
 
-    emailjs.sendForm(
-      "service_kbivphy",
-      "template_qy88crm",
-      this
-    ).then(function() {
-      document.getElementById("form-status").innerText = "✅ Message sent successfully!";
-    }, function(error) {
-      document.getElementById("form-status").innerText = "❌ Failed to send message. Try again.";
+  if (form) {
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm(
+        "service_kbivphy",
+        "template_qy88crm",
+        this
+      ).then(function() {
+        status.innerText = "✅ Message sent successfully!";
+      }, function() {
+        status.innerText = "❌ Failed to send message. Try again.";
+      });
     });
-  });
+  }
+});
 </script>
+
 
 </body>
 </html>

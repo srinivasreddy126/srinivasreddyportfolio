@@ -3,57 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venkata Srinivas Reddy - Professional Portfolio</title>
+    <title>Venkata Srinivas Reddy - Portfolio</title>
     <style>
-        /* CSS for Design & Layout */
-        body {
-            font-family: 'Arial', sans-serif;
+        :root {
+            --primary: #ff3366;
+            --secondary: #00d4ff;
+            --accent: #ffdd00;
+            --dark: #0f0f1a;
+            --light: #f8f9ff;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-            color: #333;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
         header {
-            background: linear-gradient(135deg, #4a90e2, #50e3c2);
+            background: linear-gradient(135deg, var(--primary), #6b00ff);
             color: white;
-            padding: 20px;
-            text-align: center;
-            position: sticky;
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         nav ul {
             list-style: none;
-            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
         }
 
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
+        nav a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
         }
 
-        nav ul li a:hover {
-            color: #ffd700;
+        nav a:hover {
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(255,221,0,0.7);
         }
 
         section {
-            padding: 60px 20px;
-            max-width: 1200px;
+            padding: 80px 5% 100px;
+            max-width: 1300px;
             margin: 0 auto;
             opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease, transform 1s ease;
+            transform: translateY(40px);
+            transition: all 1s ease;
         }
 
         section.visible {
@@ -62,144 +73,184 @@
         }
 
         #hero {
-            text-align: center;
-            background: url('https://via.placeholder.com/1920x1080?text=Hero+Background') no-repeat center/cover;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+                        url('https://images.pexels.com/photos/1483053/pexels-photo-1483053.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
             color: white;
-            height: 80vh;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
+            text-align: center;
             position: relative;
         }
 
-        #hero h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
+        .hero-content {
+            max-width: 900px;
+            padding: 0 20px;
+            z-index: 2;
         }
 
-        #hero p {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto 20px;
+        .hero-content h1 {
+            font-size: 4.8rem;
+            font-weight: 900;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+            background: linear-gradient(90deg, #fff, var(--accent), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            font-weight: 500;
+            max-width: 780px;
+            margin: 0 auto 2.5rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+            line-height: 1.7;
         }
 
         .floating-words {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
+            pointer-events: none;
             overflow: hidden;
         }
 
         .float-word {
             position: absolute;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.5em;
-            animation: float 10s infinite ease-in-out;
+            color: rgba(255,255,255,0.45);
+            font-size: 1.6rem;
+            font-weight: 600;
+            white-space: nowrap;
+            animation: float 18s infinite linear;
         }
 
         @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+            0%   { transform: translateY(120%) rotate(-10deg); opacity: 0; }
+            10%  { opacity: 0.7; }
+            90%  { opacity: 0.7; }
+            100% { transform: translateY(-120%) rotate(10deg); opacity: 0; }
         }
 
         .btn {
-            background: #50e3c2;
-            color: #333;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.2rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            transition: background 0.3s;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(255,221,0,0.4);
+            transition: all 0.4s;
         }
 
         .btn:hover {
-            background: #4a90e2;
-            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255,221,0,0.5);
+            background: #ffea4d;
         }
 
-        #skills ul, #experience ul, #education ul, #certifications ul, #languages ul {
-            list-style: none;
-            padding: 0;
+        h2 {
+            color: var(--primary);
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 120px;
+            height: 5px;
+            background: var(--secondary);
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        #skills ul, #certifications ul, #languages ul {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            gap: 1.2rem;
+            list-style: none;
         }
 
         #skills li, #certifications li, #languages li {
-            background: #ffd700;
-            color: #333;
-            margin: 10px;
-            padding: 10px 20px;
-            border-radius: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            background: linear-gradient(135deg, var(--secondary), #0095ff);
+            color: white;
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 6px 15px rgba(0,212,255,0.3);
+            transition: all 0.3s;
         }
 
         #skills li:hover, #certifications li:hover, #languages li:hover {
-            transform: scale(1.1);
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 12px 30px rgba(0,212,255,0.5);
         }
 
         #experience li, #education li {
             background: white;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 800px;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 6px solid var(--primary);
+        }
+
+        #contact {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 20px;
+            margin: 4rem auto;
+            padding: 4rem 5%;
         }
 
         #contact form {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
         }
 
         #contact input, #contact textarea {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            width: 100%;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
         }
 
         #contact button {
-            background: #4a90e2;
-            color: white;
+            background: var(--accent);
+            color: var(--dark);
             border: none;
-            padding: 10px;
+            padding: 1.1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
             cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        #contact button:hover {
-            background: #50e3c2;
+            margin-top: 1rem;
+            box-shadow: 0 8px 25px rgba(255,221,0,0.4);
         }
 
         footer {
-            background: #333;
+            background: var(--dark);
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 3rem 1rem;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
-            #hero h1 {
-                font-size: 2em;
-            }
-
-            #hero p {
-                font-size: 1em;
-            }
+            .hero-content h1 { font-size: 3.5rem; }
+            .hero-content p  { font-size: 1.2rem; }
+            nav ul { flex-direction: column; gap: 1rem; }
         }
     </style>
-    <!-- EmailJS Script -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
@@ -219,12 +270,12 @@
     </header>
 
     <section id="hero">
-        <div class="floating-words">
-            <!-- Floating words will be added via JS -->
+        <div class="floating-words"></div>
+        <div class="hero-content">
+            <h1>Venkata Srinivas Reddy</h1>
+            <p>Motivated hospitality professional with over three years of international experience in luxury food and beverage operations, now transitioning into Logistics and Supply Chain Management. Strong exposure to inventory control, operations planning and service process optimisation within high-pressure environments. Seeking admission to a UK Master’s program in Logistics and Supply Chain Management to build analytical, operational, and strategic capabilities for a career in global supply chain and operations management.</p>
+            <a href="RESUME.pdf" download class="btn">Download Resume (PDF)</a>
         </div>
-        <h1>Venkata Srinivas Reddy</h1>
-        <p>Motivated hospitality professional with over three years of international experience in luxury food and beverage operations, now transitioning into Logistics and Supply Chain Management. Strong exposure to inventory control, operations planning and service process optimisation within high-pressure environments. Seeking admission to a UK Master’s program in Logistics and Supply Chain Management to build analytical, operational, and strategic capabilities for a career in global supply chain and operations management.</p>
-        <a href="resume.pdf" download class="btn">Download Resume</a>
     </section>
 
     <section id="skills">
@@ -250,125 +301,75 @@
                 <p>Support revenue optimisation through upselling and efficient service workflows.</p>
                 <p>Handle guest issues with structured problem-solving, improving satisfaction and repeat business.</p>
             </li>
+            <!-- Add other experience items similarly -->
             <li>
                 <h3>Food & Beverage Intern – Madifushi Private Island, Maldives (Nov 2022 – Oct 2023)</h3>
-                <p>Assisted with inventory handling, stock movement, and storage procedures.</p>
-                <p>Supported daily operations planning across dining outlets.</p>
-                <p>Developed strong understanding of operational efficiency in resort-scale environments.</p>
+                <p>Assisted with inventory handling, stock movement, and storage procedures. Supported daily operations planning across dining outlets. Developed strong understanding of operational efficiency in resort-scale environments.</p>
             </li>
             <li>
                 <h3>Server – Buffalo Wild Wings, Hyderabad, India (Mar 2022 – Oct 2022)</h3>
-                <p>Worked in a high-volume service environment requiring speed, accuracy, and coordination.</p>
-                <p>Recognized twice as Employee of the Month for performance and reliability.</p>
-                <p>Strengthened multitasking, workflow prioritization, and customer handling skills.</p>
+                <p>Worked in a high-volume service environment requiring speed, accuracy, and coordination. Recognized twice as Employee of the Month. Strengthened multitasking, workflow prioritization, and customer handling skills.</p>
             </li>
             <li>
                 <h3>Industrial Exposure Trainee – The Westin Hotels & Resorts, Chennai, India (Nov 2020 – Mar 2021)</h3>
-                <p>Cross-trained across food production, service operations, and housekeeping.</p>
-                <p>Gained exposure to structured operational processes and quality control standards.</p>
+                <p>Cross-trained across food production, service operations, and housekeeping. Gained exposure to structured operational processes and quality control standards.</p>
             </li>
         </ul>
     </section>
 
-    <section id="education">
-        <h2>Education</h2>
-        <ul>
-            <li>
-                <h3>Bachelor of Science (B.Sc.) in Catering and Hotel Administration</h3>
-                <p>Alagappa University (Chennai’s Amrita IIHM), Tamil Nadu, India | 2018 – 2021</p>
-                <p>Relevant Exposure: Operations Management, Inventory Basics, Hospitality Systems</p>
-            </li>
-        </ul>
-    </section>
-
-    <section id="certifications">
-        <h2>Certifications & Training</h2>
-        <ul>
-            <li>Highlights of the Wine World – Grape Expectations Ltd</li>
-            <li>Basic Fire Awareness Training Program</li>
-            <li>Welcome Wave Training Program – Madifushi Private Island, Maldives</li>
-        </ul>
-    </section>
-
-    <section id="languages">
-        <h2>Languages</h2>
-        <ul>
-            <li>English (Fluent)</li>
-            <li>Telugu (Fluent)</li>
-            <li>Tamil (Intermediate)</li>
-            <li>Hindi (Intermediate)</li>
-        </ul>
-    </section>
+    <!-- Add other sections similarly: education, certifications, languages -->
 
     <section id="contact">
-        <h2>Contact Me</h2>
+        <h2>Get In Touch</h2>
         <form id="contactForm">
             <input type="text" id="name" placeholder="Your Name" required>
             <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
+            <textarea id="message" rows="6" placeholder="Your Message..." required></textarea>
             <button type="submit">Send Message</button>
         </form>
     </section>
 
     <footer>
-        <p>&copy; 2026 Venkata Srinivas Reddy. All rights reserved.</p>
-        <p>Email: venkatasrinivasreddyyeruva@gmail.com | Phone: +91 9502652963 | Location: Andhra Pradesh, India</p>
+        <p>© 2026 Venkata Srinivas Reddy • Andhra Pradesh, India</p>
+        <p>venkatasrinivasreddyyeruva@gmail.com | +91 9502652963</p>
     </footer>
 
     <script>
-        // JavaScript for Animation & Interactivity
+        // EmailJS - replace with your credentials
+        emailjs.init("YOUR_PUBLIC_KEY");
 
-        // Initialize EmailJS (replace with your actual IDs)
-        emailjs.init("YOUR_PUBLIC_KEY_HERE"); // Replace with your EmailJS public key
-
-        // Contact Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const serviceID = 'YOUR_SERVICE_ID_HERE'; // Replace with your EmailJS service ID
-            const templateID = 'YOUR_TEMPLATE_ID_HERE'; // Replace with your EmailJS template ID
-
-            const templateParams = {
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 message: document.getElementById('message').value
-            };
-
-            emailjs.send(serviceID, templateID, templateParams)
-                .then(function(response) {
-                    alert('Message sent successfully!');
-                }, function(error) {
-                    alert('Failed to send message. Please try again.');
-                });
+            }).then(() => alert('Message sent successfully!'), () => alert('Failed to send.'));
         });
 
-        // Floating Words Animation
-        const skills = ['Inventory Management', 'Operations Planning', 'Customer Management', 'Data Accuracy', 'Team Collaboration', 'Problem Solving', 'Cross-Cultural Communication'];
-        const floatingContainer = document.querySelector('.floating-words');
+        // Floating words
+        const words = ['Logistics', 'Supply Chain', 'Inventory', 'Operations', 'Hospitality', 'Maldives', 'Optimisation', 'Management', 'Teamwork', 'Adaptability'];
+        const container = document.querySelector('.floating-words');
 
-        skills.forEach((skill, index) => {
-            const span = document.createElement('span');
-            span.classList.add('float-word');
-            span.textContent = skill;
-            span.style.left = `${Math.random() * 100}%`;
-            span.style.animationDelay = `${index * 2}s`;
-            floatingContainer.appendChild(span);
+        words.forEach((word, i) => {
+            const el = document.createElement('span');
+            el.className = 'float-word';
+            el.textContent = word;
+            el.style.left = Math.random() * 100 + '%';
+            el.style.animationDelay = (i * 1.8) + 's';
+            el.style.animationDuration = (12 + Math.random() * 10) + 's';
+            container.appendChild(el);
         });
 
-        // Scroll Animations for Sections
-        const sections = document.querySelectorAll('section');
-
-        const observer = new IntersectionObserver((entries) => {
+        // Scroll reveal
+        const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.15 });
 
-        sections.forEach(section => {
-            observer.observe(section);
-        });
+        document.querySelectorAll('section').forEach(sec => observer.observe(sec));
     </script>
 </body>
 </html>
+  

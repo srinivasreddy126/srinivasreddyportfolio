@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venkata Srinivas Reddy - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
             --primary: #ff3366;
@@ -23,14 +24,14 @@
             font-family: 'Segoe UI', system-ui, sans-serif;
             background: var(--light);
             color: var(--dark);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
         header {
             background: linear-gradient(135deg, var(--primary), #6b00ff);
             color: white;
-            padding: 1.2rem 0;
+            padding: 1rem;
             position: fixed;
             width: 100%;
             top: 0;
@@ -38,33 +39,52 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+
         nav ul {
             list-style: none;
             display: flex;
-            justify-content: center;
-            gap: 2.5rem;
+            gap: 1.8rem;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             transition: all 0.3s;
         }
 
         nav a:hover {
             color: var(--accent);
-            text-shadow: 0 0 10px rgba(255,221,0,0.7);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: white;
         }
 
         section {
-            padding: 80px 5% 100px;
+            padding: 100px 5% 80px;
             max-width: 1300px;
             margin: 0 auto;
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s ease;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
         }
 
         section.visible {
@@ -74,7 +94,7 @@
 
         #hero {
             min-height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
                         url('https://images.pexels.com/photos/1483053/pexels-photo-1483053.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
             color: white;
             display: flex;
@@ -91,22 +111,21 @@
         }
 
         .hero-content h1 {
-            font-size: 4.8rem;
+            font-size: 4.5rem;
             font-weight: 900;
-            margin-bottom: 1.2rem;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.7);
             background: linear-gradient(90deg, #fff, var(--accent), #fff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero-content p {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             font-weight: 500;
-            max-width: 780px;
-            margin: 0 auto 2.5rem;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.8);
         }
 
         .floating-words {
@@ -118,42 +137,41 @@
 
         .float-word {
             position: absolute;
-            color: rgba(255,255,255,0.45);
-            font-size: 1.6rem;
+            color: rgba(255,255,255,0.4);
+            font-size: 1.4rem;
             font-weight: 600;
             white-space: nowrap;
-            animation: float 18s infinite linear;
+            animation: float 20s infinite linear;
         }
 
         @keyframes float {
-            0%   { transform: translateY(120%) rotate(-10deg); opacity: 0; }
-            10%  { opacity: 0.7; }
-            90%  { opacity: 0.7; }
-            100% { transform: translateY(-120%) rotate(10deg); opacity: 0; }
+            0%   { transform: translateY(110%) rotate(-15deg); opacity: 0; }
+            10%  { opacity: 0.6; }
+            90%  { opacity: 0.6; }
+            100% { transform: translateY(-110%) rotate(15deg); opacity: 0; }
         }
 
         .btn {
             display: inline-block;
             background: var(--accent);
             color: var(--dark);
-            padding: 1rem 2.2rem;
-            font-size: 1.2rem;
+            padding: 0.9rem 2rem;
+            font-size: 1.15rem;
             font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
-            box-shadow: 0 8px 25px rgba(255,221,0,0.4);
+            box-shadow: 0 6px 20px rgba(255,221,0,0.4);
             transition: all 0.4s;
         }
 
         .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(255,221,0,0.5);
-            background: #ffea4d;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(255,221,0,0.5);
         }
 
         h2 {
             color: var(--primary);
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 2rem;
             text-align: center;
             position: relative;
@@ -161,53 +179,52 @@
 
         h2::after {
             content: '';
-            width: 120px;
-            height: 5px;
+            width: 100px;
+            height: 4px;
             background: var(--secondary);
             position: absolute;
-            bottom: -12px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 3px;
+            border-radius: 2px;
         }
 
-        #skills ul, #certifications ul, #languages ul {
+        ul.skill-list, ul.cert-list, ul.lang-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.2rem;
+            gap: 1rem;
             list-style: none;
         }
 
-        #skills li, #certifications li, #languages li {
+        ul.skill-list li, ul.cert-list li, ul.lang-list li {
             background: linear-gradient(135deg, var(--secondary), #0095ff);
             color: white;
-            padding: 0.9rem 1.8rem;
+            padding: 0.8rem 1.6rem;
             border-radius: 50px;
             font-weight: 600;
-            box-shadow: 0 6px 15px rgba(0,212,255,0.3);
+            box-shadow: 0 5px 12px rgba(0,212,255,0.3);
             transition: all 0.3s;
         }
 
-        #skills li:hover, #certifications li:hover, #languages li:hover {
-            transform: translateY(-8px) scale(1.08);
-            box-shadow: 0 12px 30px rgba(0,212,255,0.5);
+        ul.skill-list li:hover, ul.cert-list li:hover, ul.lang-list li:hover {
+            transform: translateY(-6px);
         }
 
         #experience li, #education li {
             background: white;
-            margin: 2rem 0;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-left: 6px solid var(--primary);
+            margin: 1.8rem 0;
+            padding: 1.8rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary);
         }
 
         #contact {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            border-radius: 20px;
-            margin: 4rem auto;
+            border-radius: 16px;
+            margin: 3rem auto;
             padding: 4rem 5%;
         }
 
@@ -218,37 +235,99 @@
 
         #contact input, #contact textarea {
             width: 100%;
-            padding: 1rem;
-            margin: 1rem 0;
+            padding: 0.9rem;
+            margin: 0.8rem 0;
             border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
+            border-radius: 8px;
+            font-size: 1rem;
         }
 
         #contact button {
             background: var(--accent);
             color: var(--dark);
             border: none;
-            padding: 1.1rem 2.5rem;
-            font-size: 1.2rem;
+            padding: 1rem 2.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
             margin-top: 1rem;
-            box-shadow: 0 8px 25px rgba(255,221,0,0.4);
         }
 
         footer {
             background: var(--dark);
             color: white;
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 2.5rem 1rem;
+            font-size: 0.95rem;
         }
 
+        /* Mobile Menu */
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 3.5rem; }
-            .hero-content p  { font-size: 1.2rem; }
-            nav ul { flex-direction: column; gap: 1rem; }
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                padding: 1rem 0;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                text-align: center;
+                padding: 1rem 0;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 80px 6% 60px;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            ul.skill-list li, ul.cert-list li, ul.lang-list li {
+                padding: 0.7rem 1.3rem;
+                font-size: 0.95rem;
+            }
+
+            #experience li, #education li {
+                padding: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.6rem;
+                font-size: 1rem;
+            }
         }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -256,17 +335,21 @@
 <body>
 
     <header>
-        <nav>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#languages">Languages</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="nav-container">
+            <div class="logo">VSR</div>
+            <nav>
+                <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+                <ul id="navMenu">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#languages">Languages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <section id="hero">
@@ -280,7 +363,7 @@
 
     <section id="skills">
         <h2>Key Skills</h2>
-        <ul>
+        <ul class="skill-list">
             <li>Inventory Management & Stock Control</li>
             <li>Operations Planning & Coordination</li>
             <li>Customer & Stakeholder Management</li>
@@ -334,7 +417,7 @@
 
     <section id="certifications">
         <h2>Certifications & Training</h2>
-        <ul>
+        <ul class="cert-list">
             <li>Highlights of the Wine World – Grape Expectations Ltd</li>
             <li>Basic Fire Awareness Training Program</li>
             <li>Welcome Wave Training Program – Madifushi Private Island, Maldives</li>
@@ -343,7 +426,7 @@
 
     <section id="languages">
         <h2>Languages</h2>
-        <ul>
+        <ul class="lang-list">
             <li>English (Fluent)</li>
             <li>Telugu (Fluent)</li>
             <li>Tamil (Intermediate)</li>
@@ -367,6 +450,21 @@
     </footer>
 
     <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link (optional improvement)
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
         // EmailJS - replace with your credentials
         emailjs.init("YOUR_PUBLIC_KEY");
 
@@ -376,7 +474,10 @@
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 message: document.getElementById('message').value
-            }).then(() => alert('Message sent successfully!'), () => alert('Failed to send.'));
+            }).then(() => {
+                alert('Message sent successfully!');
+                e.target.reset();
+            }, () => alert('Failed to send message.'));
         });
 
         // Floating words
@@ -388,8 +489,8 @@
             el.className = 'float-word';
             el.textContent = word;
             el.style.left = Math.random() * 100 + '%';
-            el.style.animationDelay = (i * 1.8) + 's';
-            el.style.animationDuration = (12 + Math.random() * 10) + 's';
+            el.style.animationDelay = (i * 2) + 's';
+            el.style.animationDuration = (15 + Math.random() * 10) + 's';
             container.appendChild(el);
         });
 
@@ -398,7 +499,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('section').forEach(sec => observer.observe(sec));
     </script>

@@ -3,74 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venkata Srinivas Reddy - Portfolio</title>
+    <title>Venkata Srinivas Reddy | Hospitality Professional</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --primary: #ff3366;
-            --secondary: #00d4ff;
-            --accent: #ffdd00;
-            --dark: #0f0f1a;
-            --light: #f8f9ff;
+            --primary: #006d77;      /* Deep Ocean Blue */
+            --secondary: #83c5be;    /* Soft Turquoise */
+            --accent: #e29578;       /* Warm Coral/Sand */
+            --dark: #2b2d42;
+            --light: #f8f9fa;
+            --gold: #f4a261;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             background: var(--light);
             color: var(--dark);
-            line-height: 1.7;
+            line-height: 1.8;
             overflow-x: hidden;
         }
-
         header {
-            background: linear-gradient(135deg, var(--primary), #6b00ff);
+            background: rgba(43, 45, 66, 0.95);
             color: white;
-            padding: 1rem;
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 1300px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 2rem;
         }
-
         .logo {
-            font-size: 1.6rem;
-            font-weight: bold;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 1px;
         }
-
         nav ul {
             list-style: none;
             display: flex;
-            gap: 1.8rem;
+            gap: 2rem;
         }
-
         nav a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: all 0.3s;
+            font-weight: 500;
+            transition: color 0.3s;
         }
-
         nav a:hover {
-            color: var(--accent);
+            color: var(--secondary);
         }
-
         .menu-toggle {
             display: none;
             font-size: 1.8rem;
@@ -86,7 +80,6 @@
             transform: translateY(30px);
             transition: all 0.8s ease;
         }
-
         section.visible {
             opacity: 1;
             transform: translateY(0);
@@ -94,7 +87,7 @@
 
         #hero {
             min-height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+            background: linear-gradient(rgba(0,109,119,0.75), rgba(43,45,66,0.85)),
                         url('https://images.pexels.com/photos/1483053/pexels-photo-1483053.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
             color: white;
             display: flex;
@@ -103,171 +96,131 @@
             text-align: center;
             position: relative;
         }
-
         .hero-content {
-            max-width: 900px;
+            max-width: 800px;
             padding: 0 20px;
             z-index: 2;
         }
-
         .hero-content h1 {
-            font-size: 4.5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.7);
-            background: linear-gradient(90deg, #fff, var(--accent), #fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
         }
-
-        .hero-content p {
-            font-size: 1.35rem;
-            font-weight: 500;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 400;
         }
-
-        .floating-words {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .float-word {
-            position: absolute;
-            color: rgba(255,255,255,0.4);
-            font-size: 1.4rem;
-            font-weight: 600;
-            white-space: nowrap;
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            0%   { transform: translateY(110%) rotate(-15deg); opacity: 0; }
-            10%  { opacity: 0.6; }
-            90%  { opacity: 0.6; }
-            100% { transform: translateY(-110%) rotate(15deg); opacity: 0; }
-        }
-
         .btn {
             display: inline-block;
             background: var(--accent);
-            color: var(--dark);
-            padding: 0.9rem 2rem;
-            font-size: 1.15rem;
-            font-weight: bold;
+            color: white;
+            padding: 1rem 2.2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
             text-decoration: none;
             border-radius: 50px;
-            box-shadow: 0 6px 20px rgba(255,221,0,0.4);
             transition: all 0.4s;
+            box-shadow: 0 6px 20px rgba(226, 149, 120, 0.4);
         }
-
         .btn:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(255,221,0,0.5);
+            box-shadow: 0 12px 30px rgba(226, 149, 120, 0.5);
         }
 
         h2 {
             color: var(--primary);
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
+            font-size: 2.6rem;
+            margin-bottom: 2.5rem;
             text-align: center;
             position: relative;
         }
-
         h2::after {
             content: '';
-            width: 100px;
-            height: 4px;
+            width: 80px;
+            height: 3px;
             background: var(--secondary);
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 2px;
         }
 
-        ul.skill-list, ul.cert-list, ul.lang-list {
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        .project-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .project-card .content {
+            padding: 1.5rem;
+        }
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        ul.skill-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 1rem;
             list-style: none;
         }
-
-        ul.skill-list li, ul.cert-list li, ul.lang-list li {
-            background: linear-gradient(135deg, var(--secondary), #0095ff);
+        ul.skill-list li {
+            background: var(--secondary);
             color: white;
-            padding: 0.8rem 1.6rem;
+            padding: 0.9rem 1.8rem;
             border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 5px 12px rgba(0,212,255,0.3);
-            transition: all 0.3s;
-        }
-
-        ul.skill-list li:hover, ul.cert-list li:hover, ul.lang-list li:hover {
-            transform: translateY(-6px);
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(131, 197, 190, 0.3);
         }
 
         #experience li, #education li {
             background: white;
-            margin: 1.8rem 0;
-            padding: 1.8rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border-left: 5px solid var(--primary);
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+            border-left: 6px solid var(--accent);
         }
 
         #contact {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--primary), #1a3a40);
             color: white;
-            border-radius: 16px;
-            margin: 3rem auto;
-            padding: 4rem 5%;
-        }
-
-        #contact form {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        #contact input, #contact textarea {
-            width: 100%;
-            padding: 0.9rem;
-            margin: 0.8rem 0;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        #contact button {
-            background: var(--accent);
-            color: var(--dark);
-            border: none;
-            padding: 1rem 2.2rem;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-top: 1rem;
+            border-radius: 20px;
+            margin: 4rem auto;
+            padding: 4.5rem 5%;
         }
 
         footer {
             background: var(--dark);
-            color: white;
+            color: #aaa;
             text-align: center;
-            padding: 2.5rem 1rem;
+            padding: 3rem 1rem;
             font-size: 0.95rem;
         }
 
-        /* Mobile Menu */
+        /* Mobile */
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
+            .menu-toggle { display: block; }
             nav ul {
                 display: none;
                 flex-direction: column;
@@ -276,64 +229,15 @@
                 left: 0;
                 width: 100%;
                 background: var(--primary);
-                padding: 1rem 0;
-                box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+                padding: 1.5rem 0;
             }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            nav ul li {
-                text-align: center;
-                padding: 1rem 0;
-            }
-
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-
-            section {
-                padding: 80px 6% 60px;
-            }
-
-            h2 {
-                font-size: 2.2rem;
-            }
-
-            ul.skill-list li, ul.cert-list li, ul.lang-list li {
-                padding: 0.7rem 1.3rem;
-                font-size: 0.95rem;
-            }
-
-            #experience li, #education li {
-                padding: 1.4rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2.6rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .btn {
-                padding: 0.8rem 1.6rem;
-                font-size: 1rem;
-            }
+            nav ul.active { display: flex; }
+            .hero-content h1 { font-size: 2.8rem; }
+            .hero-content .subtitle { font-size: 1.25rem; }
         }
     </style>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
-
     <header>
         <div class="nav-container">
             <div class="logo">VSR</div>
@@ -343,9 +247,8 @@
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Featured Projects</a></li>
                     <li><a href="#education">Education</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#languages">Languages</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -353,24 +256,26 @@
     </header>
 
     <section id="hero">
-        <div class="floating-words"></div>
         <div class="hero-content">
             <h1>Venkata Srinivas Reddy</h1>
-            <p>Motivated hospitality professional with over three years of international experience in luxury food and beverage operations, now transitioning into Logistics and Supply Chain Management. Strong exposure to inventory control, operations planning and service process optimisation within high-pressure environments. Seeking admission to a UK Master’s program in Logistics and Supply Chain Management to build analytical, operational, and strategic capabilities for a career in global supply chain and operations management.</p>
-            <a href="RESUME.pdf" download class="btn">Download Resume (PDF)</a>
+            <p class="subtitle">Food & Beverage Specialist | Luxury Resort Operations</p>
+            <p style="font-size:1.15rem; max-width:650px; margin:0 auto 2rem;">
+                Passionate hospitality professional with 3+ years of international experience in premium food & beverage service, inventory management, and guest experience excellence in the Maldives.
+            </p>
+            <a href="RESUME.pdf" download class="btn">Download Resume</a>
         </div>
     </section>
 
     <section id="skills">
-        <h2>Key Skills</h2>
+        <h2>Core Skills</h2>
         <ul class="skill-list">
-            <li>Inventory Management & Stock Control</li>
-            <li>Operations Planning & Coordination</li>
-            <li>Customer & Stakeholder Management</li>
-            <li>Data Accuracy & Attention to Detail</li>
-            <li>Team Collaboration</li>
-            <li>Problem Solving & Adaptability</li>
-            <li>Cross-Cultural Communication</li>
+            <li>Luxury Service Excellence</li>
+            <li>Inventory & Stock Control</li>
+            <li>Operations Coordination</li>
+            <li>Guest Experience Management</li>
+            <li>Team Leadership & Training</li>
+            <li>Upselling & Revenue Support</li>
+            <li>Problem Solving in High-Pressure Environments</li>
         </ul>
     </section>
 
@@ -379,29 +284,52 @@
         <ul>
             <li>
                 <h3>Food & Beverage Specialist – Madifushi Private Island, Maldives (Nov 2023 – Present)</h3>
-                <p>Manage daily service operations in a luxury resort environment, ensuring smooth coordination between service, kitchen, and inventory teams.</p>
-                <p>Monitor stock levels, assist in inventory planning, and reduce shortages through accurate requisitions.</p>
-                <p>Support revenue optimisation through upselling and efficient service workflows.</p>
-                <p>Handle guest issues with structured problem-solving, improving satisfaction and repeat business.</p>
+                <p>Deliver exceptional dining experiences in a luxury overwater and beach resort setting. Manage daily service operations, coordinate with kitchen and inventory teams, and maintain high standards of guest satisfaction.</p>
             </li>
             <li>
                 <h3>Food & Beverage Intern – Madifushi Private Island, Maldives (Nov 2022 – Oct 2023)</h3>
-                <p>Assisted with inventory handling, stock movement, and storage procedures.</p>
-                <p>Supported daily operations planning across dining outlets.</p>
-                <p>Developed strong understanding of operational efficiency in resort-scale environments.</p>
+                <p>Supported full F&B operations including inventory handling, stock movement, setup of destination dining experiences, and daily service planning.</p>
             </li>
             <li>
                 <h3>Server – Buffalo Wild Wings, Hyderabad, India (Mar 2022 – Oct 2022)</h3>
-                <p>Worked in a high-volume service environment requiring speed, accuracy, and coordination.</p>
-                <p>Recognized twice as Employee of the Month for performance and reliability.</p>
-                <p>Strengthened multitasking, workflow prioritization, and customer handling skills.</p>
+                <p>Excelled in high-volume service environment. Awarded Employee of the Month twice for outstanding performance and reliability.</p>
             </li>
             <li>
                 <h3>Industrial Exposure Trainee – The Westin Hotels & Resorts, Chennai, India (Nov 2020 – Mar 2021)</h3>
-                <p>Cross-trained across food production, service operations, and housekeeping.</p>
-                <p>Gained exposure to structured operational processes and quality control standards.</p>
+                <p>Gained hands-on exposure across food production, service, and operational standards in a 5-star environment.</p>
             </li>
         </ul>
+    </section>
+
+    <!-- New Featured Projects Section -->
+    <section id="projects" style="background:#f8f9fa;">
+        <h2>Featured Projects & Setups</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="YOUR_BEACH_DINNER_IMAGE_1.jpg" alt="Romantic Beach Dinner Setup at Madifushi">
+                <div class="content">
+                    <h3>Romantic Beach Dinner Setup</h3>
+                    <p>Designed and executed intimate beachfront dining experiences with custom lighting, floral arrangements, and personalized service for guests at Madifushi Private Island.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="YOUR_BEACH_DINNER_IMAGE_2.jpg" alt="Destination Dining Experience">
+                <div class="content">
+                    <h3>Destination Beach Dinner</h3>
+                    <p>Coordinated exclusive sunset beach dinners featuring multi-course menus, wine pairing, and seamless service in a stunning Maldivian setting.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="YOUR_OTHER_SETUP_IMAGE.jpg" alt="Private Island Dining Setup">
+                <div class="content">
+                    <h3>Private Island Dining Events</h3>
+                    <p>Managed high-end private dining setups including overwater and beach locations, ensuring flawless execution and memorable guest moments.</p>
+                </div>
+            </div>
+        </div>
+        <p style="text-align:center; margin-top:2rem; color:#666; font-size:0.95rem;">
+            Replace the image URLs above with your actual photos of beach dinner setups.
+        </p>
     </section>
 
     <section id="education">
@@ -410,37 +338,17 @@
             <li>
                 <h3>Bachelor of Science (B.Sc.) in Catering and Hotel Administration</h3>
                 <p>Alagappa University (Chennai’s Amrita IIHM), Tamil Nadu, India | 2018 – 2021</p>
-                <p>Relevant Exposure: Operations Management, Inventory Basics, Hospitality Systems</p>
             </li>
         </ul>
     </section>
 
-    <section id="certifications">
-        <h2>Certifications & Training</h2>
-        <ul class="cert-list">
-            <li>Highlights of the Wine World – Grape Expectations Ltd</li>
-            <li>Basic Fire Awareness Training Program</li>
-            <li>Welcome Wave Training Program – Madifushi Private Island, Maldives</li>
-        </ul>
-    </section>
-
-    <section id="languages">
-        <h2>Languages</h2>
-        <ul class="lang-list">
-            <li>English (Fluent)</li>
-            <li>Telugu (Fluent)</li>
-            <li>Tamil (Intermediate)</li>
-            <li>Hindi (Intermediate)</li>
-        </ul>
-    </section>
-
     <section id="contact">
-        <h2>Get In Touch</h2>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" rows="6" placeholder="Your Message..." required></textarea>
-            <button type="submit">Send Message</button>
+        <h2 style="color:white;">Let's Connect</h2>
+        <form id="contactForm" style="max-width:700px; margin:0 auto;">
+            <input type="text" id="name" placeholder="Your Name" required style="width:100%; padding:1rem; margin:0.8rem 0; border:none; border-radius:8px;">
+            <input type="email" id="email" placeholder="Your Email" required style="width:100%; padding:1rem; margin:0.8rem 0; border:none; border-radius:8px;">
+            <textarea id="message" rows="6" placeholder="Your Message..." required style="width:100%; padding:1rem; margin:0.8rem 0; border:none; border-radius:8px;"></textarea>
+            <button type="submit" style="background:var(--accent); color:white; border:none; padding:1rem 2.5rem; font-size:1.1rem; border-radius:50px; cursor:pointer;">Send Message</button>
         </form>
     </section>
 
@@ -450,48 +358,13 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
+        // Mobile Menu
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
 
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu when clicking a link (optional improvement)
         navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // EmailJS - replace with your credentials
-        emailjs.init("YOUR_PUBLIC_KEY");
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            }).then(() => {
-                alert('Message sent successfully!');
-                e.target.reset();
-            }, () => alert('Failed to send message.'));
-        });
-
-        // Floating words
-        const words = ['Logistics', 'Supply Chain', 'Inventory', 'Operations', 'Hospitality', 'Maldives', 'Optimisation', 'Management', 'Teamwork', 'Adaptability'];
-        const container = document.querySelector('.floating-words');
-
-        words.forEach((word, i) => {
-            const el = document.createElement('span');
-            el.className = 'float-word';
-            el.textContent = word;
-            el.style.left = Math.random() * 100 + '%';
-            el.style.animationDelay = (i * 2) + 's';
-            el.style.animationDuration = (15 + Math.random() * 10) + 's';
-            container.appendChild(el);
+            link.addEventListener('click', () => navMenu.classList.remove('active'));
         });
 
         // Scroll reveal

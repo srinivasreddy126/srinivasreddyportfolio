@@ -1,239 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkata Srinivas Reddy | Luxury Hospitality Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #0a3d62;
+            --teal: #006d77;
+            --gold: #d4a017;
+            --sand: #f4e9d8;
+            --light: #f8f6f0;
+            --dark: #1e2a44;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', 'Playfair Display', serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.85;
+            overflow-x: hidden;
+        }
+        header {
+            background: rgba(10, 61, 98, 0.92);
+            color: white;
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2.5rem;
+        }
+        .logo {
+            font-size: 1.95rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--gold);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: color 0.4s;
+        }
+        nav a:hover {
+            color: var(--gold);
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.9rem;
+            cursor: pointer;
+            color: white;
+        }
 
-<title>Venkata Srinivas Reddy | Hospitality Professional</title>
+        #hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(10,61,98,0.65), rgba(30,42,68,0.75)),
+                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
+            /* Alternative premium URLs you can try:
+               https://images.pexels.com/photos/3127722/pexels-photo-3127722.jpeg (romantic beach dinner)
+               or https://source.unsplash.com/random/1920x1080/?maldives-beach-dinner */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .floating-designs {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .float-item {
+            position: absolute;
+            color: rgba(255,255,255,0.25);
+            font-size: 1.6rem;
+            font-weight: 300;
+            white-space: nowrap;
+            animation: floatLuxury 28s infinite linear;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        @keyframes floatLuxury {
+            0% { transform: translateY(120%) rotate(-8deg); opacity: 0; }
+            15% { opacity: 0.6; }
+            85% { opacity: 0.6; }
+            100% { transform: translateY(-120%) rotate(8deg); opacity: 0; }
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+        .hero-content {
+            max-width: 820px;
+            padding: 0 25px;
+            z-index: 2;
+        }
+        .hero-content h1 {
+            font-size: 4.2rem;
+            font-weight: 400;
+            letter-spacing: -2px;
+            margin-bottom: 0.8rem;
+            color: white;
+        }
+        .hero-content .tagline {
+            font-size: 1.45rem;
+            font-weight: 300;
+            margin-bottom: 2.2rem;
+            opacity: 0.95;
+        }
+        .btn {
+            display: inline-block;
+            background: transparent;
+            color: white;
+            border: 2px solid var(--gold);
+            padding: 1.05rem 2.8rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.5s;
+        }
+        .btn:hover {
+            background: var(--gold);
+            color: var(--dark);
+            transform: scale(1.05);
+        }
 
-<style>
-:root {
-    --primary: #1b4332;
-    --secondary: #d4af37;
-    --light: #f8f9fa;
-    --dark: #081c15;
-}
+        section {
+            padding: 110px 5% 90px;
+            max-width: 1300px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h2 {
+            color: var(--teal);
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
 
-body {
-    margin:0;
-    font-family:'Inter',sans-serif;
-    background:var(--light);
-    color:var(--dark);
-}
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2.5rem;
+        }
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: all 0.5s;
+        }
+        .project-card:hover {
+            transform: translateY(-15px);
+        }
+        .project-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+        .project-card .content {
+            padding: 1.8rem;
+        }
+        .project-card h3 {
+            color: var(--teal);
+            margin-bottom: 0.8rem;
+        }
 
-h1,h2,h3 {
-    font-family:'Playfair Display',serif;
-}
+        ul.skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            list-style: none;
+        }
+        ul.skill-list li {
+            background: rgba(0,109,119,0.1);
+            color: var(--teal);
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            border: 1px solid var(--teal);
+        }
 
-header {
-    position:fixed;
-    width:100%;
-    top:0;
-    background:rgba(0,0,0,0.8);
-    color:white;
-    padding:1rem;
-    text-align:center;
-}
+        #experience li, #education li {
+            background: white;
+            margin: 2.2rem 0;
+            padding: 2.2rem;
+            border-radius: 18px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+        }
 
-section {
-    padding:100px 8%;
-    max-width:1100px;
-    margin:auto;
-}
+        #contact {
+            background: linear-gradient(135deg, var(--navy), var(--teal));
+            color: white;
+            border-radius: 24px;
+            margin: 4rem auto;
+            padding: 5rem 6%;
+        }
 
-#hero {
-    height:100vh;
-    background:url('https://images.pexels.com/photos/1483053/pexels-photo-1483053.jpeg') center/cover;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:white;
-}
+        footer {
+            background: var(--dark);
+            color: #b0b8c9;
+            text-align: center;
+            padding: 3.5rem 1rem;
+        }
 
-.hero-content h1 {
-    font-size:3.5rem;
-}
-
-.subtitle {
-    font-size:1.3rem;
-    margin:10px 0;
-}
-
-.hero-desc {
-    max-width:600px;
-    margin:auto;
-}
-
-.btn {
-    background:var(--secondary);
-    padding:10px 25px;
-    border-radius:30px;
-    text-decoration:none;
-    color:black;
-    display:inline-block;
-    margin-top:20px;
-}
-
-h2 {
-    text-align:center;
-    margin-bottom:30px;
-}
-
-ul {
-    list-style:none;
-    padding:0;
-}
-
-ul li {
-    margin:10px 0;
-}
-
-.card {
-    background:white;
-    padding:20px;
-    margin:20px 0;
-    border-radius:10px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-}
-
-.project-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
-}
-
-.project img {
-    width:100%;
-    height:200px;
-    object-fit:cover;
-    border-radius:10px;
-}
-
-footer {
-    text-align:center;
-    padding:20px;
-    background:var(--dark);
-    color:white;
-}
-</style>
+        /* Mobile */
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--navy);
+                padding: 1.5rem 0;
+            }
+            nav ul.active { display: flex; }
+            .hero-content h1 { font-size: 3.1rem; }
+        }
+    </style>
 </head>
-
 <body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">VSR</div>
+            <nav>
+                <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+                <ul id="navMenu">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Featured Experiences</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header>
-    Venkata Srinivas Reddy
-</header>
+    <section id="hero">
+        <div class="floating-designs" id="floatingContainer"></div>
+        <div class="hero-content">
+            <h1>Venkata Srinivas Reddy</h1>
+            <p class="tagline">Food & Beverage Specialist in Luxury Resort Hospitality</p>
+            <p style="font-size:1.2rem; max-width:680px; margin:0 auto 2.5rem; opacity:0.9;">
+                Delivering exceptional guest experiences with over three years of international expertise in premium dining operations and destination setups in the Maldives.
+            </p>
+            <a href="RESUME.pdf" download class="btn">Download Resume</a>
+        </div>
+    </section>
 
-<section id="hero">
-<div class="hero-content">
-<h1>Venkata Srinivas Reddy</h1>
-<p class="subtitle">Food & Beverage Specialist | Luxury Resort Operations</p>
-<p class="hero-desc">
-Delivering exceptional guest experiences in luxury hospitality environments with expertise in fine dining service, upselling, and premium guest engagement.
-</p>
-<a href="RESUME.pdf" class="btn">Download Resume</a>
-</div>
-</section>
+    <section id="skills">
+        <h2>Signature Expertise</h2>
+        <ul class="skill-list">
+            <li>Luxury Service & Guest Experience</li>
+            <li>Destination Dining & Beach Setups</li>
+            <li>Inventory & Operations Management</li>
+            <li>Team Coordination & Training</li>
+            <li>Revenue Optimization through Upselling</li>
+            <li>High-Pressure Service Excellence</li>
+        </ul>
+    </section>
 
-<section>
-<h2>Professional Summary</h2>
-<p>
-Dedicated Food & Beverage Specialist with international experience in luxury resort operations in the Maldives. Recognized for delivering personalized guest service, maintaining high service standards, and contributing to memorable dining experiences. Proven ability to perform in high-pressure environments while ensuring guest satisfaction, operational efficiency, and service excellence.
-</p>
-</section>
+    <section id="experience">
+        <h2>Professional Journey</h2>
+        <ul>
+            <li>
+                <h3>Food & Beverage Specialist – Madifushi Private Island, Maldives (Nov 2023 – Present)</h3>
+                <p>Lead premium dining service in an exclusive island resort. Expert in curating memorable beach and overwater dining experiences while maintaining exceptional standards in operations and guest satisfaction.</p>
+            </li>
+            <li>
+                <h3>Food & Beverage Intern – Madifushi Private Island, Maldives (Nov 2022 – Oct 2023)</h3>
+                <p>Supported full F&B operations with focus on inventory control, destination dining setups, and seamless service execution.</p>
+            </li>
+            <!-- Keep your other experiences as before -->
+            <li>
+                <h3>Server – Buffalo Wild Wings, Hyderabad, India (Mar 2022 – Oct 2022)</h3>
+                <p>Awarded Employee of the Month twice for outstanding service in a fast-paced environment.</p>
+            </li>
+            <li>
+                <h3>Industrial Exposure Trainee – The Westin Hotels & Resorts, Chennai, India (Nov 2020 – Mar 2021)</h3>
+                <p>Cross-trained in food production, service, and luxury hospitality standards.</p>
+            </li>
+        </ul>
+    </section>
 
-<section>
-<h2>Core Skills</h2>
-<ul>
-<li>Luxury Guest Service Excellence</li>
-<li>Fine Dining & Destination Dining Service</li>
-<li>Upselling & Revenue Optimization</li>
-<li>Inventory Control & Stock Management</li>
-<li>Guest Relationship Management</li>
-<li>Service Recovery & Problem Resolution</li>
-<li>Team Collaboration & Communication</li>
-</ul>
-</section>
+    <section id="projects" style="background: var(--sand);">
+        <h2>Featured Destination Experiences</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34b4?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Romantic Beach Dinner Setup">
+                <div class="content">
+                    <h3>Romantic Sunset Beach Dinners</h3>
+                    <p>Curated intimate beachfront dining experiences with bespoke setups, lighting, and personalized multi-course service at Madifushi Private Island.</p>
+                </div>
+            </div>
+            <!-- Add your own real photos here by replacing the src URLs -->
+            <div class="project-card">
+                <img src="YOUR_OWN_BEACH_DINNER_PHOTO_1.jpg" alt="Private Beach Dinner">
+                <div class="content">
+                    <h3>Private Island Dining Events</h3>
+                    <p>Executed exclusive private dining setups tailored for special occasions in stunning Maldivian beach and lagoon locations.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="YOUR_OWN_BEACH_DINNER_PHOTO_2.jpg" alt="Elegant Destination Setup">
+                <div class="content">
+                    <h3>Signature Destination Dining</h3>
+                    <p>Designed and managed high-end beach dinners featuring wine pairings, floral artistry, and flawless execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section>
-<h2>Professional Experience</h2>
+    <section id="education">
+        <h2>Education</h2>
+        <ul>
+            <li>
+                <h3>B.Sc. in Catering and Hotel Administration</h3>
+                <p>Alagappa University (Amrita IIHM), Tamil Nadu, India | 2018 – 2021</p>
+            </li>
+        </ul>
+    </section>
 
-<div class="card">
-<h3>Food & Beverage Specialist – Madifushi Private Island, Maldives</h3>
-<p>
-Delivered premium dining experiences in a luxury resort environment, ensuring seamless coordination between kitchen, service, and guest expectations. Maintained high standards of service quality while handling international guests in a fast-paced setting.
-</p>
-</div>
+    <section id="contact">
+        <h2 style="color:white;">Begin a Conversation</h2>
+        <form id="contactForm" style="max-width:720px; margin:0 auto;">
+            <input type="text" id="name" placeholder="Your Name" required style="width:100%; padding:1.1rem; margin:1rem 0; border:none; border-radius:12px; font-size:1.05rem;">
+            <input type="email" id="email" placeholder="Your Email" required style="width:100%; padding:1.1rem; margin:1rem 0; border:none; border-radius:12px; font-size:1.05rem;">
+            <textarea id="message" rows="7" placeholder="Your Message" required style="width:100%; padding:1.1rem; margin:1rem 0; border:none; border-radius:12px; font-size:1.05rem;"></textarea>
+            <button type="submit" style="background:var(--gold); color:var(--dark); border:none; padding:1.1rem 3rem; font-size:1.1rem; border-radius:50px; cursor:pointer; margin-top:1rem;">Send Message</button>
+        </form>
+    </section>
 
-<div class="card">
-<h3>Food & Beverage Intern – Madifushi Private Island, Maldives</h3>
-<p>
-Supported resort operations including inventory handling, service preparation, and guest engagement. Developed strong operational knowledge of luxury hospitality service standards.
-</p>
-</div>
+    <footer>
+        <p>© 2026 Venkata Srinivas Reddy • Luxury Hospitality Professional • Andhra Pradesh, India</p>
+        <p>venkatasrinivasreddyyeruva@gmail.com | +91 9121985772</p>
+    </footer>
 
-<div class="card">
-<h3>Server – Buffalo Wild Wings, Hyderabad</h3>
-<p>
-Delivered efficient service in a high-volume environment. Recognized twice as Employee of the Month for outstanding performance and guest satisfaction.
-</p>
-</div>
+    <script>
+        // Mobile Menu
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
+        navMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
 
-</section>
+        // Elegant Floating Designs
+        const floatingWords = ['Serenity', 'Excellence', 'Maldives', 'Luxury', 'Elegance', 'Hospitality', 'Destination', 'Timeless'];
+        const container = document.getElementById('floatingContainer');
+        floatingWords.forEach((word, i) => {
+            const el = document.createElement('span');
+            el.className = 'float-item';
+            el.textContent = word;
+            el.style.left = Math.random() * 95 + '%';
+            el.style.top = Math.random() * 80 + '%';
+            el.style.animationDelay = (i * 3.5) + 's';
+            el.style.animationDuration = (24 + Math.random() * 12) + 's';
+            el.style.fontSize = (1.3 + Math.random() * 1.2) + 'rem';
+            container.appendChild(el);
+        });
 
-<section>
-<h2>Signature Dining Experiences</h2>
-
-<div class="project-grid">
-
-<div class="project">
-<img src="images/dinner1.jpg">
-<h3>Romantic Beach Dinner</h3>
-<p>Executed personalized beachfront dining experiences with candlelight setup and premium service.</p>
-</div>
-
-<div class="project">
-<img src="images/dinner2.jpg">
-<h3>Destination Dining</h3>
-<p>Coordinated exclusive beach dining experiences with seamless service and guest engagement.</p>
-</div>
-
-<div class="project">
-<img src="images/dinner3.jpg">
-<h3>Private Dining Setup</h3>
-<p>Managed high-end dining setups ensuring exceptional presentation and guest satisfaction.</p>
-</div>
-
-</div>
-</section>
-
-<section>
-<h2>Key Achievements</h2>
-<ul>
-<li>Promoted from Intern to Specialist – Madifushi Maldives</li>
-<li>Employee of the Month (2×) – Buffalo Wild Wings</li>
-<li>Delivered luxury dining experiences for international guests</li>
-</ul>
-</section>
-
-<section>
-<h2>Education</h2>
-<p>B.Sc. Catering & Hotel Administration – Alagappa University</p>
-</section>
-
-<section>
-<h2>Contact</h2>
-<p>Email: venkatasrinivasreddyyeruva@gmail.com</p>
-<p>Phone: +91 9502652963</p>
-<p>LinkedIn: linkedin.com/in/srinivas-reddy</p>
-</section>
-
-<footer>
-© 2026 Venkata Srinivas Reddy
-</footer>
-
+        // Scroll Reveal
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+    </script>
 </body>
 </html>

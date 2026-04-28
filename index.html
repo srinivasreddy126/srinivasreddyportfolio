@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venkata Srinivas Reddy | Luxury Hospitality Professional</title>
+    <title>Balaji Gents PG | Premium Men's Hostel in Bangalore</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
@@ -27,7 +27,7 @@
             overflow-x: hidden;
         }
         header {
-            background: rgba(10, 61, 98, 0.92);
+            background: rgba(10, 61, 98, 0.95);
             color: white;
             padding: 1.2rem 0;
             position: fixed;
@@ -46,7 +46,7 @@
             padding: 0 2.5rem;
         }
         .logo {
-            font-size: 1.95rem;
+            font-size: 2.1rem;
             font-weight: 700;
             letter-spacing: 2px;
             color: var(--gold);
@@ -76,40 +76,14 @@
         #hero {
             min-height: 100vh;
             background: linear-gradient(rgba(10,61,98,0.65), rgba(30,42,68,0.75)),
-                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
-            /* Alternative premium URLs you can try:
-               https://images.pexels.com/photos/3127722/pexels-photo-3127722.jpeg (romantic beach dinner)
-               or https://source.unsplash.com/random/1920x1080/?maldives-beach-dinner */
+                        url('https://images.unsplash.com/photo-1560448204-e02f8a0c3a5e?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') center/cover no-repeat;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
-        .floating-designs {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .float-item {
-            position: absolute;
-            color: rgba(255,255,255,0.25);
-            font-size: 1.6rem;
-            font-weight: 300;
-            white-space: nowrap;
-            animation: floatLuxury 28s infinite linear;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        @keyframes floatLuxury {
-            0% { transform: translateY(120%) rotate(-8deg); opacity: 0; }
-            15% { opacity: 0.6; }
-            85% { opacity: 0.6; }
-            100% { transform: translateY(-120%) rotate(8deg); opacity: 0; }
-        }
-
         .hero-content {
             max-width: 820px;
             padding: 0 25px;
@@ -120,10 +94,9 @@
             font-weight: 400;
             letter-spacing: -2px;
             margin-bottom: 0.8rem;
-            color: white;
         }
         .hero-content .tagline {
-            font-size: 1.45rem;
+            font-size: 1.55rem;
             font-weight: 300;
             margin-bottom: 2.2rem;
             opacity: 0.95;
@@ -167,56 +140,46 @@
             letter-spacing: 1px;
         }
 
-        .project-grid {
+        .amenity-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .amenity-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.4s;
+        }
+        .amenity-card:hover {
+            transform: translateY(-10px);
+        }
+        .amenity-card i {
+            font-size: 3rem;
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 2.5rem;
         }
-        .project-card {
+        .room-card {
             background: white;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            transition: all 0.5s;
         }
-        .project-card:hover {
-            transform: translateY(-15px);
-        }
-        .project-card img {
+        .room-card img {
             width: 100%;
-            height: 260px;
+            height: 240px;
             object-fit: cover;
         }
-        .project-card .content {
+        .room-card .content {
             padding: 1.8rem;
-        }
-        .project-card h3 {
-            color: var(--teal);
-            margin-bottom: 0.8rem;
-        }
-
-        ul.skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.2rem;
-            list-style: none;
-        }
-        ul.skill-list li {
-            background: rgba(0,109,119,0.1);
-            color: var(--teal);
-            padding: 0.85rem 2rem;
-            border-radius: 50px;
-            font-weight: 500;
-            border: 1px solid var(--teal);
-        }
-
-        #experience li, #education li {
-            background: white;
-            margin: 2.2rem 0;
-            padding: 2.2rem;
-            border-radius: 18px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
         }
 
         #contact {
@@ -226,7 +189,6 @@
             margin: 4rem auto;
             padding: 5rem 6%;
         }
-
         footer {
             background: var(--dark);
             color: #b0b8c9;
@@ -234,7 +196,6 @@
             padding: 3.5rem 1rem;
         }
 
-        /* Mobile */
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
             nav ul {
@@ -253,17 +214,17 @@
     </style>
 </head>
 <body>
+
     <header>
         <div class="nav-container">
-            <div class="logo">VSR</div>
+            <div class="logo">BALAJI GENTS PG</div>
             <nav>
                 <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
                 <ul id="navMenu">
                     <li><a href="#hero">Home</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Featured Experiences</a></li>
-                    <li><a href="#education">Education</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#rooms">Rooms</a></li>
+                    <li><a href="#location">Location</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -271,103 +232,111 @@
     </header>
 
     <section id="hero">
-        <div class="floating-designs" id="floatingContainer"></div>
         <div class="hero-content">
-            <h1>Venkata Srinivas Reddy</h1>
-            <p class="tagline">Food & Beverage Specialist in Luxury Resort Hospitality</p>
-            <p style="font-size:1.2rem; max-width:680px; margin:0 auto 2.5rem; opacity:0.9;">
-                Delivering exceptional guest experiences with over three years of international expertise in premium dining operations and destination setups in the Maldives.
+            <h1>Balaji Gents PG</h1>
+            <p class="tagline">Premium Men's Paying Guest Hostel in Bangalore</p>
+            <p style="font-size:1.25rem; max-width:680px; margin:0 auto 2.5rem; opacity:0.95;">
+                Modern, safe & comfortable living for working professionals and students near Whitefield / ITPL / KR Puram
             </p>
-            <a href="RESUME.pdf" download class="btn">Download Resume</a>
+            <a href="tel:+919xxxxxxxxx" class="btn">Call Now: +91 9XXXXXXXXX</a>
         </div>
     </section>
 
-    <section id="skills">
-        <h2>Signature Expertise</h2>
-        <ul class="skill-list">
-            <li>Luxury Service & Guest Experience</li>
-            <li>Destination Dining & Beach Setups</li>
-            <li>Inventory & Operations Management</li>
-            <li>Team Coordination & Training</li>
-            <li>Revenue Optimization through Upselling</li>
-            <li>High-Pressure Service Excellence</li>
-        </ul>
-    </section>
-
-    <section id="experience">
-        <h2>Professional Journey</h2>
-        <ul>
-            <li>
-                <h3>Food & Beverage Specialist – Madifushi Private Island, Maldives (Nov 2023 – Present)</h3>
-                <p>Lead premium dining service in an exclusive island resort. Expert in curating memorable beach and overwater dining experiences while maintaining exceptional standards in operations and guest satisfaction.</p>
-            </li>
-            <li>
-                <h3>Food & Beverage Intern – Madifushi Private Island, Maldives (Nov 2022 – Oct 2023)</h3>
-                <p>Supported full F&B operations with focus on inventory control, destination dining setups, and seamless service execution.</p>
-            </li>
-            <!-- Keep your other experiences as before -->
-            <li>
-                <h3>Server – Buffalo Wild Wings, Hyderabad, India (Mar 2022 – Oct 2022)</h3>
-                <p>Awarded Employee of the Month twice for outstanding service in a fast-paced environment.</p>
-            </li>
-            <li>
-                <h3>Industrial Exposure Trainee – The Westin Hotels & Resorts, Chennai, India (Nov 2020 – Mar 2021)</h3>
-                <p>Cross-trained in food production, service, and luxury hospitality standards.</p>
-            </li>
-        </ul>
-    </section>
-
-    <section id="projects" style="background: var(--sand);">
-        <h2>Featured Destination Experiences</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34b4?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Romantic Beach Dinner Setup">
-                <div class="content">
-                    <h3>Romantic Sunset Beach Dinners</h3>
-                    <p>Curated intimate beachfront dining experiences with bespoke setups, lighting, and personalized multi-course service at Madifushi Private Island.</p>
-                </div>
+    <section id="amenities">
+        <h2>Premium Amenities</h2>
+        <div class="amenity-grid">
+            <div class="amenity-card">
+                <i class="fas fa-wifi"></i>
+                <h3>High-Speed WiFi</h3>
+                <p>100 Mbps dedicated connection throughout the premises</p>
             </div>
-            <!-- Add your own real photos here by replacing the src URLs -->
-            <div class="project-card">
-               <img src="images/beach-dinner-1.jpg" alt="Romantic Beach Dinner Setup">
-                <div class="content">
-                    <h3>Private Island Dining Events</h3>
-                    <p>Executed exclusive private dining setups tailored for special occasions in stunning Maldivian beach and lagoon locations.</p>
-                </div>
+            <div class="amenity-card">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Fitness Area</h3>
+                <p>Basic gym with weights and cardio</p>
             </div>
-            <div class="project-card">
-                <img src="YOUR_OWN_BEACH_DINNER_PHOTO_2.jpg" alt="Elegant Destination Setup">
-                <div class="content">
-                    <h3>Signature Destination Dining</h3>
-                    <p>Designed and managed high-end beach dinners featuring wine pairings, floral artistry, and flawless execution.</p>
-                </div>
+            <div class="amenity-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Home-Style Meals</h3>
+                <p>3 delicious vegetarian meals + snacks</p>
+            </div>
+            <div class="amenity-card">
+                <i class="fas fa-washing-machine"></i>
+                <h3>Washing Machine</h3>
+                <p>Free use with ironing facility</p>
+            </div>
+            <div class="amenity-card">
+                <i class="fas fa-car"></i>
+                <h3>Parking</h3>
+                <p>Two-wheeler & limited four-wheeler parking</p>
+            </div>
+            <div class="amenity-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>24×7 Security</h3>
+                <p>CCTV + biometric entry</p>
             </div>
         </div>
     </section>
 
-    <section id="education">
-        <h2>Education</h2>
-        <ul>
-            <li>
-                <h3>B.Sc. in Catering and Hotel Administration</h3>
-                <p>Alagappa University (Amrita IIHM), Tamil Nadu, India | 2018 – 2021</p>
-            </li>
-        </ul>
+    <section id="rooms" style="background: var(--sand);">
+        <h2>Room Options</h2>
+        <div class="room-grid">
+            <div class="room-card">
+                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Single Room">
+                <div class="content">
+                    <h3>Single Occupancy</h3>
+                    <p>₹9,500 – ₹11,000 / month</p>
+                    <p>Private room with attached bathroom</p>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd5a5c1a4b2d?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Double Sharing">
+                <div class="content">
+                    <h3>Double Sharing</h3>
+                    <p>₹7,000 – ₹8,500 / month</p>
+                    <p>Spacious room with two single beds</p>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Triple Sharing">
+                <div class="content">
+                    <h3>Triple Sharing</h3>
+                    <p>₹5,500 – ₹6,500 / month</p>
+                    <p>Affordable & comfortable for students</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location">
+        <h2>Prime Location</h2>
+        <p style="text-align:center; font-size:1.3rem; max-width:800px; margin:0 auto 3rem;">
+            Near <strong>Whitefield / ITPL / KR Puram</strong><br>
+            5–10 mins from major IT companies • Close to Metro Station • Banks, Malls & Hospitals nearby
+        </p>
+        <!-- You can embed Google Maps here -->
+        <div style="text-align:center;">
+            <iframe width="100%" height="450" style="border:0; border-radius:20px;" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.5!2d77.7!3d12.97!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzEyLjAiTiA3N8KwNDInMDAuMCJF!5e0!3m2!1sen!2sin!4v123456789" 
+                    allowfullscreen="" loading="lazy"></iframe>
+        </div>
     </section>
 
     <section id="contact">
-        <h2 style="color:white;">Begin a Conversation</h2>
+        <h2 style="color:white;">Book Your Stay Today</h2>
         <form id="contactForm" style="max-width:720px; margin:0 auto;">
-            <input type="text" id="name" placeholder="Your Name" required style="width:100%; padding:1.1rem; margin:1rem 0; border:none; border-radius:12px; font-size:1.05rem;">
-            <input type="email" id="email" placeholder="Your Email" required style="width:100%; padding:1.1rem; margin:1rem 0; border:none; border-radius:12px; font-size:1.05rem;">
-            <textarea id="message" rows="7" placeholder="Your Message" required style="width:100%; padding:1.1rem; margin:1rem 0; border:none; border-radius:12px; font-size:1.05rem;"></textarea>
-            <button type="submit" style="background:var(--gold); color:var(--dark); border:none; padding:1.1rem 3rem; font-size:1.1rem; border-radius:50px; cursor:pointer; margin-top:1rem;">Send Message</button>
+            <input type="text" id="name" placeholder="Full Name" required style="width:100%; padding:1.1rem; margin:1rem 0; border:none; border-radius:12px; font-size:1.05rem;">
+            <input type="tel" id="phone" placeholder="Phone Number" required style="width:100%; padding:1.1rem; margin:1rem 0; border:none; border-radius:12px; font-size:1.05rem;">
+            <input type="email" id="email" placeholder="Email (Optional)" style="width:100%; padding:1.1rem; margin:1rem 0; border:none; border-radius:12px; font-size:1.05rem;">
+            <textarea id="message" rows="5" placeholder="Preferred room type, move-in date, or any questions" required style="width:100%; padding:1.1rem; margin:1rem 0; border:none; border-radius:12px; font-size:1.05rem;"></textarea>
+            <button type="submit" style="background:var(--gold); color:var(--dark); border:none; padding:1.1rem 3rem; font-size:1.1rem; border-radius:50px; cursor:pointer; margin-top:1rem;">Send Inquiry</button>
         </form>
     </section>
 
     <footer>
-        <p>© 2026 Venkata Srinivas Reddy • Luxury Hospitality Professional • Andhra Pradesh, India</p>
-        <p>venkatasrinivasreddyyeruva@gmail.com | +91 9121985772</p>
+        <p>© 2026 Balaji Gents PG • Premium Men's Hostel • Bangalore</p>
+        <p>+91 9XXXXXXXXX | balajigentspg@gmail.com</p>
+        <p>Near ITPL, Whitefield, Bengaluru, Karnataka</p>
     </footer>
 
     <script>
@@ -376,21 +345,6 @@
         const navMenu = document.getElementById('navMenu');
         menuToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
         navMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
-
-        // Elegant Floating Designs
-        const floatingWords = ['Serenity', 'Excellence', 'Maldives', 'Luxury', 'Elegance', 'Hospitality', 'Destination', 'Timeless'];
-        const container = document.getElementById('floatingContainer');
-        floatingWords.forEach((word, i) => {
-            const el = document.createElement('span');
-            el.className = 'float-item';
-            el.textContent = word;
-            el.style.left = Math.random() * 95 + '%';
-            el.style.top = Math.random() * 80 + '%';
-            el.style.animationDelay = (i * 3.5) + 's';
-            el.style.animationDuration = (24 + Math.random() * 12) + 's';
-            el.style.fontSize = (1.3 + Math.random() * 1.2) + 'rem';
-            container.appendChild(el);
-        });
 
         // Scroll Reveal
         const observer = new IntersectionObserver(entries => {
